@@ -1,0 +1,238 @@
+https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Poppins:wght@400;600&display=swa<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZM Fragrances | Original Attar & Perfumes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Noto Nastaliq Urdu', sans-serif;
+        }
+
+        body {
+            background-color: #0f172a;
+            color: #ffffff;
+            direction: ltr;
+        }
+
+        header {
+            background: #1e293b;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #f59e0b;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #fff;
+        }
+
+        .cart-icon {
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+        }
+
+        .hero h1 {
+            color: #f59e0b;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            color: #94a3b8;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 25px;
+            color: #f59e0b;
+            text-align: center;
+            border-bottom: 2px solid #f59e0b;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .title-wrapper {
+            text-align: center;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .product-card {
+            background: #1e293b;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #334155;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            padding-bottom: 15px;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.2);
+            border-color: #f59e0b;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background-color: #334155;
+        }
+
+        .product-card h3 {
+            font-size: 18px;
+            margin: 15px 0 5px;
+            color: #ffffff;
+        }
+
+        .product-card .category {
+            font-size: 12px;
+            color: #94a3b8;
+            text-transform: uppercase;
+        }
+
+        .product-card .price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #f59e0b;
+            margin: 10px 0;
+        }
+
+        .buy-btn {
+            background: #f59e0b;
+            color: #0f172a;
+            border: none;
+            padding: 10px 20px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 85%;
+            transition: 0.3s;
+        }
+
+        .buy-btn:hover {
+            background: #ffffff;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #1e293b;
+            margin-top: 50px;
+            color: #94a3b8;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">ZM <span>FRAGRANCES</span></div>
+        <div class="cart-icon">🛒</div>
+    </header>
+
+    <section class="hero">
+        <h1>Original Attar & Premium Fragrances</h1>
+        <p>خالص اور دیرپا خوشبوؤں کا بہترین مرکز</p>
+    </section>
+
+    <div class="container">
+        <div class="title-wrapper">
+            <h2 class="section-title">Our Products</h2>
+        </div>
+
+        <div class="products-grid">
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?w=500" alt="Royal Oud">
+                <h3>ZM Royal Oud</h3>
+                <p class="category">Premium Attar</p>
+                <p class="price">Rs. 1,800</p>
+                <button class="buy-btn">Order on WhatsApp</button>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=500" alt="Amber Musk">
+                <h3>ZM Amber Musk</h3>
+                <p class="category">Concentrated Perfume</p>
+                <p class="price">Rs. 1,500</p>
+                <button class="buy-btn">Order on WhatsApp</button>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=500" alt="Jasmine Breeze">
+                <h3>ZM Jasmine Breeze</h3>
+                <p class="category">Floral Attar</p>
+                <p class="price">Rs. 1,200</p>
+                <button class="buy-btn">Order on WhatsApp</button>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?w=500" alt="White Rose">
+                <h3>ZM White Rose</h3>
+                <p class="category">Attar</p>
+                <p class="price">Rs. 999</p>
+                <button class="buy-btn">Order on WhatsApp</button>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=500" alt="Black Tobacco">
+                <h3>ZM Black Tobacco</h3>
+                <p class="category">Strong Fragrance</p>
+                <p class="price">Rs. 2,200</p>
+                <button class="buy-btn">Order on WhatsApp</button>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1615397349754-cfa2066a298e?w=500" alt="Sandalwood Classic">
+                <h3>ZM Sandalwood Classic</h3>
+                <p class="category">Pure Organic</p>
+                <p class="price">Rs. 1,600</p>
+                <button class="buy-btn">Order on WhatsApp</button>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 ZM Fragrances | All Rights Reserved</p>
+    </footer>
+
+</body>
+</html>
