@@ -3,242 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZM perfume and collection - ZAKIR & Mengal</title>
+    <title>ZM Perfume & Collection</title>
     <style>
-        :root {
-            --bg-color: #0b0f19;
-            --card-bg: rgba(30, 41, 59, 0.75);
-            --gold: #f59e0b;
-            --gold-light: #fbbf24;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-        }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
             margin: 0;
-            padding: 0;
-            min-height: 100vh;
-        }
-        header {
-            background: rgba(15, 23, 42, 0.9);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(245, 158, 11, 0.3);
             padding: 20px;
             text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
         }
-        .brand-title {
-            font-size: 24px;
-            font-weight: bold;
-            color: var(--gold);
-            margin: 0;
-            letter-spacing: 1px;
-        }
-        .brand-subtitle {
-            font-size: 13px;
-            color: var(--text-muted);
-            margin-top: 4px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-weight: 600;
+        h1 {
+            color: #333;
         }
         .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
         }
-        .hero-section {
-            text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(135deg, rgba(30,41,59,0.6), rgba(15,23,42,0.9));
-            border-radius: 16px;
-            margin-bottom: 30px;
-            border: 1px solid rgba(245, 158, 11, 0.2);
-        }
-        .hero-section h1 {
-            color: var(--text-main);
-            font-size: 26px;
-            margin-bottom: 10px;
-        }
-        .hero-section p {
-            color: var(--text-muted);
-            font-size: 15px;
-        }
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-        }
-        .product-card {
-            background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-            transition: transform 0.3s ease, border-color 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .product-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(245, 158, 11, 0.5);
-        }
-        .product-img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            background: #1e293b;
-        }
-        .product-info {
+        .card {
+            background: #fff;
             padding: 15px;
-            text-align: center;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        .product-name {
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 4px;
-            color: var(--gold-light);
-        }
-        .brand-tag {
-            font-size: 12px;
-            color: var(--gold);
-            letter-spacing: 1px;
-            margin-bottom: 4px;
-            text-transform: uppercase;
-            font-weight: bold;
-        }
-        .sub-tag {
-            font-size: 11px;
-            color: var(--text-muted);
-            margin-bottom: 8px;
-        }
-        .features-badge {
-            background: rgba(245, 158, 11, 0.1);
-            border: 1px dashed rgba(245, 158, 11, 0.3);
-            color: var(--gold-light);
-            font-size: 11px;
-            padding: 4px 8px;
-            border-radius: 4px;
-            margin-bottom: 12px;
-            display: inline-block;
-        }
-        .product-price {
-            font-size: 16px;
-            color: var(--text-main);
-            margin-bottom: 15px;
-            font-weight: bold;
-        }
-        .product-price span {
-            display: block;
-            font-size: 13px;
-            color: var(--text-muted);
-            margin-top: 3px;
-            font-weight: normal;
-        }
-        .order-btn {
-            display: inline-block;
+        .card img {
             width: 100%;
-            padding: 10px;
-            background: var(--gold);
-            color: #0f172a;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: bold;
-            text-align: center;
-            box-sizing: border-box;
-            transition: background 0.2s;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 5px;
         }
-        .order-btn:hover {
-            background: var(--gold-light);
-        }
-        .loading {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 40px;
-            color: var(--text-muted);
+        .card h3 {
+            margin: 10px 0 5px;
             font-size: 18px;
+            color: #444;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1 class="brand-title">ZM perfume and collection</h1>
-        <div class="brand-subtitle">ZAKIR & Mengal • Premium Attar & Perfumes</div>
-    </header>
+    <h1>ZM Perfume & Collection</h1>
+    <p>خوش آمدید! ہمارے بہترین پرفیومز اور عطر کا مجموعہ ملاحظہ کریں:</p>
 
     <div class="container">
-        <div class="hero-section">
-            <h1>پریمیم عطر اور پرفیوم کلیکشن</h1>
-            <p>100% خالص، الکوحل سے پاک (0% Alcohol) اور دیرپا خوشبوئیں</p>
+        <!-- پروڈکٹ 1 -->
+        <div class="card">
+            <img src="1000069374.jpg" alt="Asad & Khamrah">
+            <h3>Asad & Khamrah</h3>
         </div>
 
-        <div id="productsGrid" class="products-grid">
-            <div class="loading">پروڈکٹس لوڈ ہو رہے ہیں...</div>
+        <!-- پروڈکٹ 2 -->
+        <div class="card">
+            <img src="1000069373.jpg" alt="Khamrah Lattafa">
+            <h3>Khamrah Lattafa</h3>
+        </div>
+
+        <!-- پروڈکٹ 3 -->
+        <div class="card">
+            <img src="1000069376.jpg" alt="Baccarat by Spectra">
+            <h3>Baccarat by Spectra</h3>
+        </div>
+
+        <!-- پروڈکٹ 4 -->
+        <div class="card">
+            <img src="1000069375.jpg" alt="Oud Al Lail">
+            <h3>Oud Al Lail Impression</h3>
+        </div>
+
+        <!-- پروڈکٹ 5 -->
+        <div class="card">
+            <img src="1000069378.jpg" alt="Janan Gold Edition">
+            <h3>Janan Gold Edition</h3>
+        </div>
+
+        <!-- پروڈکٹ 6 -->
+        <div class="card">
+            <img src="1000069377.jpg" alt="Baccarat Rouge Dar ul Misk">
+            <h3>Baccarat Rouge - Dar ul Misk</h3>
+        </div>
+
+        <!-- پروڈکٹ 7 -->
+        <div class="card">
+            <img src="1000069379.jpg" alt="Janan Pour Homme">
+            <h3>Janan Pour Homme</h3>
+        </div>
+
+        <!-- پروڈکٹ 8 -->
+        <div class="card">
+            <img src="1000069368.jpg" alt="Traditional Attar">
+            <h3>Traditional Oud Attar</h3>
+        </div>
+
+        <!-- پروڈکٹ 9 -->
+        <div class="card">
+            <img src="1000069372.jpg" alt="Oud Al Layl 100ml">
+            <h3>Oud Al Layl 100ml</h3>
+        </div>
+
+        <!-- پروڈکٹ 10 -->
+        <div class="card">
+            <img src="1000069371.jpg" alt="Kannauj Attar Gift Set">
+            <h3>Kannauj Attar Gift Set</h3>
         </div>
     </div>
 
-    <script>
-        const exchangeRate = 280;
-
-        // آپ کے پرفیومز اور ان کی درست تصاویر کا ڈیٹا بیس
-        const myPerfumes = [
-            { name: "Asad Bourbon", price: 5500, image: "1000069363.jpg" },
-            { name: "Khamrah", price: 3000, image: "1000069362.jpg" },
-            { name: "Baccarat", price: 3500, image: "1000069365.jpg" },
-            { name: "Oud Al Lail", price: 4200, image: "1000069364.jpg" },
-            { name: "Janan Gold", price: 2500, image: "1000069367.jpg" },
-            { name: "Baccarat Rouge", price: 4500, image: "1000069366.jpg" },
-            { name: "Janan Pour Homme", price: 2800, image: "1000069369.jpg" },
-            { name: "White Musk Attar", price: 1800, image: "1000069368_2.jpg" },
-            { name: "Oud Al Layl (100ml)", price: 4800, image: "1000069370.jpg" },
-            { name: "Kannauj Attars Set", price: 8500, image: "1000069361.jpg" }
-        ];
-
-        const whatsappNumber = "923357290695";
-        const grid = document.getElementById('productsGrid');
-        grid.innerHTML = '';
-
-        myPerfumes.forEach((product) => {
-            const card = document.createElement('div');
-            card.className = 'product-card';
-            
-            const dollarPrice = (product.price / exchangeRate).toFixed(2);
-            
-            const message = `سلام! میں یہ پرفیوم خریدنا چاہتا ہوں:\n• نام: ${product.name}\n• قیمت: Rs ${product.price} (approx. $${dollarPrice})\n\n[ZM perfume and collection - ZAKIR & Mengal]`;
-            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-
-            card.innerHTML = `
-                <img src="${product.image}" alt="${product.name}" class="product-img">
-                <div class="product-info">
-                    <div>
-                        <div class="product-name">${product.name}</div>
-                        <div class="brand-tag">ZM perfume and collection</div>
-                        <div class="sub-tag">ZAKIR & Mengal • Eau de Parfum</div>
-                        <div class="features-badge">✨ 0% Alcohol • Long Lasting</div>
-                    </div>
-                    <div>
-                        <div class="product-price">
-                            Rs ${product.price.toLocaleString()}
-                            <span>($${dollarPrice} USD)</span>
-                        </div>
-                        <a href="${whatsappUrl}" target="_blank" class="order-btn">واٹس ایپ پر آرڈر کریں</a>
-                    </div>
-                </div>
-            `;
-            grid.appendChild(card);
-        });
-    </script>
 </body>
 </html>
+tasweeron ko show kro 
