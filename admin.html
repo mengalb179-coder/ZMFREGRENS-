@@ -135,36 +135,4 @@
 
                 const imgResponse = await fetch('https://api.imgbb.com/1/upload?key=d444455855f7bc863a3c26b3f7bf2758', {
                     method: 'POST',
-                    body: formData
-                });
-                const imgResult = await imgResponse.json();
-
-                if (!imgResult.success) {
-                    throw new Error('تصویر اپ لوڈ کرنے میں ناکامی! دوبارہ کوشش کریں۔');
-                }
-
-                const imageUrl = imgResult.data.url;
-
-                // اب فائر بیس کے 'products' کلیکشن میں ڈیٹا سیو کریں
-                await addDoc(collection(db, "products"), {
-                    name: name,
-                    price: Number(price),
-                    image: imageUrl,
-                    createdAt: new Date()
-                });
-
-                statusDiv.style.color = '#10b981';
-                statusDiv.innerText = 'پروڈکٹ کامیابی سے شامل کر دیا گیا ہے!';
-                document.getElementById('productForm').reset();
-
-            } catch (error) {
-                console.error(error);
-                statusDiv.style.color = '#ef4444';
-                statusDiv.innerText = 'خرابی: ' + error.message;
-            } finally {
-                submitBtn.disabled = false;
-            }
-        });
-    </script>
-</body>
-</html>
+                   
