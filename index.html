@@ -7,107 +7,131 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #f9f9f9;
             margin: 0;
             padding: 20px;
             text-align: center;
         }
         h1 {
-            color: #333;
+            color: #222;
+            margin-bottom: 5px;
+        }
+        p {
+            color: #666;
+            margin-bottom: 30px;
         }
         .container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 20px;
             max-width: 1200px;
             margin: 0 auto;
         }
         .card {
-            background: #fff;
+            background: #ffffff;
             padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            transition: transform 0.2s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
         }
         .card img {
             width: 100%;
-            height: 250px;
+            height: 240px;
             object-fit: cover;
-            border-radius: 5px;
+            border-radius: 8px;
         }
         .card h3 {
-            margin: 10px 0 5px;
+            margin: 12px 0 5px;
             font-size: 18px;
-            color: #444;
+            color: #333;
+        }
+        .price {
+            color: #b8860b;
+            font-weight: bold;
+            font-size: 16px;
+            margin-top: 5px;
         }
     </style>
 </head>
 <body>
 
     <h1>ZM Perfume & Collection</h1>
-    <p>خوش آمدید! ہمارے بہترین پرفیومز اور عطر کا مجموعہ ملاحظہ کریں:</p>
+    <p>خوش آمدید! ہمارے بہترین پرفیومز اور عطر کا مجموعہ ملاحظہ کریں</p>
 
     <div class="container">
-        <!-- پروڈکٹ 1 -->
+        <!-- 1 -->
         <div class="card">
-            <img src="1000069374.jpg" alt="Asad & Khamrah">
-            <h3>Asad & Khamrah</h3>
-        </div>
-
-        <!-- پروڈکٹ 2 -->
-        <div class="card">
-            <img src="1000069373.jpg" alt="Khamrah Lattafa">
+            <img src="1000069373_2.jpg" alt="Khamrah Lattafa">
             <h3>Khamrah Lattafa</h3>
+            <div class="price">Rs. 4,000</div>
         </div>
 
-        <!-- پروڈکٹ 3 -->
+        <!-- 2 -->
         <div class="card">
-            <img src="1000069376.jpg" alt="Baccarat by Spectra">
+            <img src="1000069376_2.jpg" alt="Baccarat by Spectra">
             <h3>Baccarat by Spectra</h3>
+            <div class="price">Rs. 3,200</div>
         </div>
 
-        <!-- پروڈکٹ 4 -->
+        <!-- 3 -->
         <div class="card">
-            <img src="1000069375.jpg" alt="Oud Al Lail">
+            <img src="1000069375_2.jpg" alt="Oud Al Lail Impression">
             <h3>Oud Al Lail Impression</h3>
+            <div class="price">Rs. 2,500</div>
         </div>
 
-        <!-- پروڈکٹ 5 -->
+        <!-- 4 -->
         <div class="card">
-            <img src="1000069378.jpg" alt="Janan Gold Edition">
-            <h3>Janan Gold Edition</h3>
+            <img src="1000069367.jpg" alt="Ambar Oud">
+            <h3>Ambar Oud (Original)</h3>
+            <div class="price">Rs. 2,000</div>
         </div>
 
-        <!-- پروڈکٹ 6 -->
+        <!-- 5 -->
         <div class="card">
-            <img src="1000069377.jpg" alt="Baccarat Rouge Dar ul Misk">
+            <img src="1000069377_2.jpg" alt="Baccarat Rouge Dar ul Misk">
             <h3>Baccarat Rouge - Dar ul Misk</h3>
+            <div class="price">Rs. 3,800</div>
         </div>
 
-        <!-- پروڈکٹ 7 -->
+        <!-- 6 -->
         <div class="card">
-            <img src="1000069379.jpg" alt="Janan Pour Homme">
-            <h3>Janan Pour Homme</h3>
+            <img src="1000069366.jpg" alt="Man Blu Al Musk">
+            <h3>Man Blu - Al Musk</h3>
+            <div class="price">Rs. 2,800</div>
         </div>
 
-        <!-- پروڈکٹ 8 -->
+        <!-- 7 -->
         <div class="card">
-            <img src="1000069368.jpg" alt="Traditional Attar">
+            <img src="1000069379_2.jpg" alt="Janan Gold Edition">
+            <h3>Janan Gold Edition</h3>
+            <div class="price">Rs. 4,500</div>
+        </div>
+
+        <!-- 8 -->
+        <div class="card">
+            <img src="1000069368_2.jpg" alt="Traditional Oud Attar">
             <h3>Traditional Oud Attar</h3>
+            <div class="price">Rs. 1,500</div>
         </div>
 
-        <!-- پروڈکٹ 9 -->
+        <!-- 9 -->
         <div class="card">
-            <img src="1000069372.jpg" alt="Oud Al Layl 100ml">
+            <img src="1000069372_2.jpg" alt="Oud Al Layl 100ml">
             <h3>Oud Al Layl 100ml</h3>
+            <div class="price">Rs. 4,200</div>
         </div>
 
-        <!-- پروڈکٹ 10 -->
+        <!-- 10 -->
         <div class="card">
-            <img src="1000069371.jpg" alt="Kannauj Attar Gift Set">
+            <img src="1000069371_2.jpg" alt="Kannauj Attar Gift Set">
             <h3>Kannauj Attar Gift Set</h3>
+            <div class="price">Rs. 5,000</div>
         </div>
     </div>
 
 </body>
 </html>
-tasweeron ko show kro 
