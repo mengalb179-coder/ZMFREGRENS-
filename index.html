@@ -1,104 +1,102 @@
 <!DOCTYPE html>
 <html lang="ur" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ZM Fragrances | Original Attar & Perfumes</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', 'Noto Nastaliq Urdu', sans-serif; }
-    body { background-color: #0f172a; color: #ffffff; direction: ltr; }
-    header { background: #1e293b; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3); position: sticky; top: 0; z-index: 100; }
-    .logo { font-size: 22px; font-weight: 700; color: #f59e0b; letter-spacing: 1px; }
-    .hero { text-align: center; padding: 30px 20px; background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%); }
-    .hero h1 { font-size: 28px; margin-bottom: 10px; color: #f8fafc; }
-    .hero p { color: #94a3b8; font-size: 14px; }
-    .container { max-width: 1200px; margin: 20px auto; padding: 0 15px; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-    .card { background: #1e293b; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.2); transition: transform 0.3s; }
-    .card:hover { transform: translateY(-5px); }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-content { padding: 15px; text-align: center; }
-    .card-content h3 { font-size: 18px; margin-bottom: 8px; color: #f1f5f9; }
-    .card-content .price { color: #34d399; font-weight: 600; font-size: 16px; margin-bottom: 12px; }
-    .btn { display: inline-block; background: #f59e0b; color: #0f172a; padding: 8px 16px; border-radius: 6px; font-weight: 600; text-decoration: none; transition: background 0.2s; }
-    .btn:hover { background: #d97706; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZM Fragrances & Watches | Original Collection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', 'Noto Nastaliq Urdu', sans-serif; }
+        body { background-color: #0f172a; color: #ffffff; direction: ltr; }
+        header { background: #1e293b; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3); position: sticky; top: 0; z-index: 100; }
+        .logo { font-size: 22px; font-weight: 700; color: #f59e0b; letter-spacing: 1px; }
+        .hero { text-align: center; padding: 30px 20px; background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%); }
+        .hero h1 { font-size: 26px; margin-bottom: 10px; color: #f8fafc; }
+        .hero p { color: #94a3b8; font-size: 14px; }
+        .container { max-width: 1200px; margin: 20px auto; padding: 0 15px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .card { background: #1e293b; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.2); transition: transform 0.3s; border: 1px solid #334155; }
+        .card:hover { transform: translateY(-5px); }
+        .card img { width: 100%; height: 220px; object-fit: cover; background: #334155; }
+        .card-content { padding: 15px; text-align: center; }
+        .card-title { font-size: 18px; font-weight: 600; color: #f8fafc; margin-bottom: 8px; }
+        .card-price { font-size: 16px; color: #f59e0b; font-weight: 700; margin-bottom: 12px; }
+        .whatsapp-btn { display: block; background-color: #25d366; color: white; padding: 10px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 14px; transition: background 0.3s; }
+        .whatsapp-btn:hover { background-color: #20ba5a; }
+    </style>
 </head>
 <body>
 
-  <header>
-    <div class="logo">ZM Fragrances</div>
-  </header>
+    <header>
+        <div class="logo">ZM Collection</div>
+    </header>
 
-  <div class="hero">
-    <h1>خوش آمدید! اصل عطر اور پرفیومز</h1>
-    <p>پریمیم کوالٹی کی خوشبوئیں اب آپ کی دسترس میں</p>
-  </div>
-
-  <div class="container">
-    <div class="grid" id="product-list">
-      <!-- یہاں پروڈکٹس فائر بیس سے خودکار لوڈ ہوں گے -->
+    <div class="hero">
+        <h1>خوش آمدید! عطر، پرفیومز اور گھڑیاں</h1>
+        <p>پریمیم کوالٹی کی پراڈکٹس اب آپ کی دسترس میں</p>
     </div>
-  </div>
 
-  <!-- فائر بیس اور خودکار اپلوڈ کا اسکرپٹ -->
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-    import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+    <div class="container">
+        <div id="product-grid" class="grid">
+            <!-- Products and Watches will load dynamically -->
+        </div>
+    </div>
 
-    // آپ کی فائر بیس کنفیگریشن
-    const firebaseConfig = {
-      projectId: "zmfregrens-77e8a",
-      // اگر مزید کوئی کی ہو تو وہ یہاں آ سکتی ہے، بصورت دیگر ڈیفالٹ کنیک션 فعال ہے
-    };
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
+        const firebaseConfig = {
+            apiKey: "AIzaSyD...",
+            authDomain: "zmfregrens-77e8a.firebaseapp.com",
+            projectId: "zmfregrens-77e8a",
+            storageBucket: "zmfregrens-77e8a.appspot.com",
+            messagingSenderId: "367121774362",
+            appId: "1:367121774362:web:..."
+        };
 
-    const products = [
-      { name: "Janan", price: 1500, image: "https://i.ibb.co/jZVCTyb5/janan-30ml.jpg" },
-      { name: "Janan Gold", price: 2500, image: "https://i.ibb.co/B5gjd38s/JANANGOLD100ml-2.jpg" },
-      { name: "Baccarat Rouge", price: 3000, image: "https://i.ibb.co/N6DMgqCb/71-N7ul-V9-IL.jpg" },
-      { name: "Baccarat 12", price: 1800, image: "https://i.ibb.co/k2NMtpJb/baccarast-12.png" },
-      { name: "Oud Al Lail", price: 2200, image: "https://i.ibb.co/LzJXBp7c/audallailcopy.jpg" },
-      { name: "Asad & Khamrah Set", price: 4500, image: "https://i.ibb.co/nMJ0v5Pt/Mens-3fb70373-97d6-4a91-94c6-bbbbe55b8c56.jpg" },
-      { name: "Lattafa Khamrah", price: 3500, image: "https://i.ibb.co/MxW8V3TL/lattafa-khamrah-edp-100ml-1-1080x.jpg" },
-      { name: "Ameer Al Oudh", price: 2000, image: "https://i.ibb.co/Yvs6dwp/Sb778c5f3841d4d8ea2f7268a4ec7e0ca-D.jpg" },
-      { name: "Attar Gift Set", price: 5000, image: "https://i.ibb.co/twhhTPkw/Diwali-Puja-Gift-Set-by-Kannauj-attar-e1771067953534.png" },
-      { name: "Special Attar", price: 1200, image: "https://i.ibb.co/xKZfWrX5/how-to-make-attar-last-longer-d0ad3120-b900-4220-b5a9-02e78f6e8ea6.jpg" },
-      { name: "White Oud", price: 1600, image: "https://i.ibb.co/TqmW4qnv/whiteoud-03.jpg" },
-      { name: "Royal Gold Attar", price: 1400, image: "https://i.ibb.co/q3j3DryJ/Attar-1-to-6-04.jpg" },
-      { name: "Blu Man", price: 2800, image: "https://i.ibb.co/TxwDMq06/Render-0026-blu-man.jpg" },
-      { name: "Attar Full", price: 1000, image: "https://i.ibb.co/ch1tqgn8/Attar-Full-Attar-Attar-Full-Attar.jpg" },
-      { name: "Shamama Green", price: 1900, image: "https://i.ibb.co/8Lg6ct3x/1-52292a84-582d-45ea-aa9b-560f62aaa8f1.jpg" },
-      { name: "Everyone", price: 2100, image: "https://i.ibb.co/twt8V0tt/EVERYONE-5.jpg" },
-      { name: "Golden Attar", price: 1300, image: "https://i.ibb.co/MDK33JgY/addon-1ba4de31-6fa2-4c1c-a121-b670fd48ecc6-1024x1024.jpg" },
-      { name: "Dust Attar", price: 1700, image: "https://i.ibb.co/ZpGW8vrH/file-0000000099c481fabb3f0999075999b8.png" },
-      { name: "Spray Bottle", price: 2400, image: "https://i.ibb.co/xtdDxJW4/file-0000000057fc820b8ca3d9f038662f1f.png" },
-      { name: "Roll-on Perfume", price: 900, image: "https://i.ibb.co/WSyLfFq/IMG-20260826-100903.png" }
-    ];
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
 
-    async function initStore() {
-      const querySnapshot = await getDocs(collection(db, "products"));
-      
-      // اگر ڈیٹا بیس خالی ہوا تو خودکار سارے پروڈکٹس ایڈ کر دے گا
-      if (querySnapshot.empty) {
-        for (let p of products) {
-          await addDoc(collection(db, "products"), p);
+        async function loadProducts() {
+            const grid = document.getElementById('product-grid');
+            try {
+                const querySnapshot = await getDocs(collection(db, "udula"));
+                grid.innerHTML = "";
+                
+                if (querySnapshot.empty) {
+                    grid.innerHTML = "<p style='text-align:center; grid-column:1/-1; color:#94a3b8;'>کوئی پروڈکٹ یا گھڑی موجود نہیں ہے۔</p>";
+                    return;
+                }
+
+                querySnapshot.forEach((doc) => {
+                    const product = doc.data();
+                    const card = document.createElement('div');
+                    card.className = 'card';
+                    
+                    const displayName = "ZM " + (product.name || "Item");
+                    const displayPrice = product.price ? "Rs. " + product.price : "Price on request";
+                    const displayImage = product.image || "https://via.placeholder.com/250";
+                    
+                    const whatsappMessage = encodeURIComponent(`سلام! میں یہ آرڈر کرنا چاہتا ہوں: ${displayName} (${displayPrice})`);
+
+                    card.innerHTML = `
+                        <img src="${displayImage}" alt="${displayName}">
+                        <div class="card-content">
+                            <div class="card-title">${displayName}</div>
+                            <div class="card-price">${displayPrice}</div>
+                            <a href="https://wa.me/923357290695?text=${whatsappMessage}" target="_blank" class="whatsapp-btn">WhatsApp پر آرڈر کریں</a>
+                        </div>
+                    `;
+                    grid.appendChild(card);
+                });
+            } catch (error) {
+                console.error("Error loading products: ", error);
+                grid.innerHTML = "<p style='text-align:center; grid-column:1/-1; color:#ef4444;'>ڈیٹا لوڈ کرنے میں مسئلہ پیش آیا ہے۔</p>";
+            }
         }
-      }
 
-      // اسکرین پر شو کروانے کے لیے
-      const listDiv = document.getElementById("product-list");
-      const latestSnapshot = await getDocs(collection(db, "products"));
-      latestSnapshot.forEach((doc) => {
-        let item = doc.data();
-        listDiv.innerHTML += `
-          <div class="card">
-            <img src="${item.image}" alt="${item.name}">
-            <div class="card-content">
-              <h3>${item.name}</h3>
-              <div class="price">Rs. ${item.price}</div>
-              <a href="#" class="btn">آرڈر کریں</a>
-       
+        loadProducts();
+    </script>
+</body>
+</html>
