@@ -217,8 +217,8 @@
                    `کل قیمت: Rs. ${totalPrice}`;
       
       window.location.href = `https://api.whatsapp.com/send?phone=${phone}&text=${text}`;
-    }
-  </script  db.collection("products").get().then((querySnapshot) => {
+    
+   db.collection("products").get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
       const product = doc.data();
       const fullName = "ZM " + product.name;
