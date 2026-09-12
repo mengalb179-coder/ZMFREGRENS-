@@ -218,13 +218,9 @@
       
       window.location.href = `https://api.whatsapp.com/send?phone=${phone}&text=${text}`;
     }
-  </script>
-</body>  // Firestore سے پروڈکٹس فیچ کرنا
-  db.collection("products").get().then((querySnapshot) => {
+  </script  db.collection("products").get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
       const product = doc.data();
-      
-      // نام کے ساتھ فرنٹ اینڈ پر "ZM" جوڑنا
       const fullName = "ZM " + product.name;
       const price = product.price;
       const imageUrl = product.image;
@@ -233,4 +229,3 @@
     });
   });
 
-</html>
