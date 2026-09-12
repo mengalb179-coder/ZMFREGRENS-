@@ -190,21 +190,20 @@
     </div>
 
     <script>
-        // تخمینی ڈالر ریٹ (مثال کے طور پر 1 ڈالر = 280 روپے کے حساب سے خودکار یا فکسڈ قیمتیں)
         const exchangeRate = 280;
 
-        // آپ کے 10 پرفیومز کا ڈیٹا بیس (روپے میں قیمتیں)
+        // آپ کے پرفیومز اور ان کی درست تصاویر کا ڈیٹا بیس
         const myPerfumes = [
-            { name: "Asad Bourbon", price: 5500, image: "image_1.png" },
-            { name: "Khamrah", price: 3000, image: "image_2.png" },
-            { name: "Baccarat", price: 3500, image: "image_3.png" },
-            { name: "Oud Al Lail", price: 4200, image: "image_4.png" },
-            { name: "Janan Gold", price: 2500, image: "image_5.png" },
-            { name: "Baccarat Rouge", price: 4500, image: "image_6.png" },
-            { name: "Janan Pour Homme", price: 2800, image: "image_7.png" },
-            { name: "White Musk Attar", price: 1800, image: "image_8.png" },
-            { name: "Oud Al Layl (100ml)", price: 4800, image: "image_9.png" },
-            { name: "Kannauj Attars Set", price: 8500, image: "image_10.png" }
+            { name: "Asad Bourbon", price: 5500, image: "1000069363.jpg" },
+            { name: "Khamrah", price: 3000, image: "1000069362.jpg" },
+            { name: "Baccarat", price: 3500, image: "1000069365.jpg" },
+            { name: "Oud Al Lail", price: 4200, image: "1000069364.jpg" },
+            { name: "Janan Gold", price: 2500, image: "1000069367.jpg" },
+            { name: "Baccarat Rouge", price: 4500, image: "1000069366.jpg" },
+            { name: "Janan Pour Homme", price: 2800, image: "1000069369.jpg" },
+            { name: "White Musk Attar", price: 1800, image: "1000069368_2.jpg" },
+            { name: "Oud Al Layl (100ml)", price: 4800, image: "1000069370.jpg" },
+            { name: "Kannauj Attars Set", price: 8500, image: "1000069361.jpg" }
         ];
 
         const whatsappNumber = "923357290695";
@@ -215,10 +214,8 @@
             const card = document.createElement('div');
             card.className = 'product-card';
             
-            // ڈالر کا حساب نکالنا
             const dollarPrice = (product.price / exchangeRate).toFixed(2);
             
-            // واٹس ایپ کا پیغام
             const message = `سلام! میں یہ پرفیوم خریدنا چاہتا ہوں:\n• نام: ${product.name}\n• قیمت: Rs ${product.price} (approx. $${dollarPrice})\n\n[ZM perfume and collection - ZAKIR & Mengal]`;
             const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
@@ -245,4 +242,3 @@
     </script>
 </body>
 </html>
-website me link bhgo search bar me 
