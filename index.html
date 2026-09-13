@@ -1,661 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title id="pageTitle">ZM Fragrances | Luxury Collection by ZAKIR & Mengal</title>
-  <meta name="theme-color" content="#0d0d0d">
-  <meta name="description" content="ZM Fragrances - 0% Alcohol Luxury Perfumes by ZAKIR & Mengal">
-  <style>
-    :root {
-      --bg-primary: #0d0d0d;
-      --bg-secondary: #161616;
-      --bg-card: #1f1f1f;
-      --gold: #d4af37;
-      --gold-light: #f3e5ab;
-      --gold-dark: #aa820a;
-      --text-primary: #f5f5f5;
-      --text-secondary: #a0a0a0;
-      --whatsapp: #25d366;
-      --whatsapp-hover: #1ebe5d;
-      --border-gold: rgba(212, 175, 55, 0.35);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    body {
-      background-color: var(--bg-primary);
-      color: var(--text-primary);
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      min-height: 100vh;
-      padding-bottom: 90px;
-    }
-
-    .brand-header {
-      background: linear-gradient(135deg, #141414 0%, #1f1f1f 100%);
-      border-bottom: 1.5px solid var(--border-gold);
-      padding: 16px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      backdrop-filter: blur(10px);
-    }
-
-    .brand-logo-area {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .brand-crest {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      border: 1.5px solid var(--gold);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: radial-gradient(circle, #292415 0%, #0d0d0d 100%);
-      color: var(--gold);
-      font-weight: 700;
-      font-size: 15px;
-      letter-spacing: 1px;
-    }
-
-    .brand-title-wrap h1 {
-      font-size: 1.25rem;
-      letter-spacing: 2px;
-      color: var(--gold-light);
-      text-transform: uppercase;
-      font-weight: 700;
-    }
-
-    .brand-title-wrap p {
-      font-size: 0.75rem;
-      color: var(--text-secondary);
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-    }
-
-    .admin-toggle-btn {
-      background: transparent;
-      border: 1px solid var(--gold);
-      color: var(--gold);
-      padding: 7px 12px;
-      border-radius: 20px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      transition: all 0.2s;
-    }
-
-    .hero-banner {
-      margin: 16px 14px;
-      padding: 18px 20px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, rgba(212,175,55,0.14) 0%, rgba(20,20,20,0.95) 100%);
-      border: 1px solid var(--border-gold);
-      text-align: center;
-    }
-
-    .hero-banner h2 {
-      font-size: 1.05rem;
-      color: var(--gold-light);
-      letter-spacing: 1px;
-      margin-bottom: 4px;
-    }
-
-    .hero-banner p {
-      font-size: 0.82rem;
-      color: var(--text-secondary);
-    }
-
-    .login-box {
-      display: none;
-      margin: 14px;
-      background: var(--bg-secondary);
-      border: 1.5px solid var(--gold);
-      border-radius: 14px;
-      padding: 16px;
-    }
-
-    .login-box.open {
-      display: block;
-    }
-
-    .admin-panel {
-      display: none;
-      margin: 14px;
-      background: var(--bg-secondary);
-      border: 1px solid var(--gold);
-      border-radius: 14px;
-      padding: 18px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-    }
-
-    .admin-panel.open {
-      display: block;
-    }
-
-    .admin-panel h3 {
-      font-size: 0.95rem;
-      color: var(--gold);
-      margin-bottom: 12px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .form-group {
-      margin-bottom: 12px;
-    }
-
-    .form-group label {
-      display: block;
-      font-size: 0.78rem;
-      color: var(--text-secondary);
-      margin-bottom: 5px;
-    }
-
-    .form-group input {
-      width: 100%;
-      background: #111;
-      border: 1px solid #333;
-      color: #fff;
-      padding: 10px 12px;
-      border-radius: 8px;
-      font-size: 0.88rem;
-    }
-
-    .btn-gold {
-      width: 100%;
-      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
-      color: #0b0b0b;
-      font-weight: 700;
-      border: none;
-      padding: 11px;
-      border-radius: 8px;
-      font-size: 0.88rem;
-      cursor: pointer;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .btn-reset {
-      width: 100%;
-      background: #333;
-      color: var(--gold-light);
-      font-weight: 600;
-      border: 1px solid var(--gold);
-      padding: 8px;
-      border-radius: 8px;
-      font-size: 0.75rem;
-      cursor: pointer;
-      margin-top: 8px;
-    }
-
-    .products-container {
-      padding: 4px 14px;
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-
-    .product-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-gold);
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-      position: relative;
-    }
-
-    .card-brand-tag {
-      background: linear-gradient(90deg, #111 0%, #2b2513 50%, #111 100%);
-      border-bottom: 1px solid rgba(212, 175, 55, 0.4);
-      text-align: center;
-      padding: 7px 10px;
-      font-size: 0.75rem;
-      letter-spacing: 2px;
-      color: var(--gold-light);
-      font-weight: 700;
-      text-transform: uppercase;
-    }
-
-    .image-stage {
-      position: relative;
-      width: 100%;
-      height: 290px;
-      background: radial-gradient(circle at center, #26231c 0%, #0c0c0c 85%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    .image-stage img {
-      max-height: 84%;
-      max-width: 84%;
-      object-fit: contain;
-      filter: drop-shadow(0 12px 20px rgba(0,0,0,0.7));
-    }
-
-    .bottle-label-overlay {
-      position: absolute;
-      bottom: 22px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(12, 12, 12, 0.92);
-      border: 1px solid var(--gold);
-      padding: 6px 16px;
-      border-radius: 4px;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.7);
-      pointer-events: none;
-    }
-
-    .bottle-label-overlay .label-zm {
-      font-size: 1.1rem;
-      letter-spacing: 3px;
-      color: var(--gold-light);
-      font-weight: 900;
-      display: block;
-      line-height: 1.1;
-    }
-
-    .bottle-label-overlay .label-zakir {
-      font-size: 0.62rem;
-      letter-spacing: 1.5px;
-      color: #fff;
-      font-weight: 600;
-      display: block;
-      margin-top: 3px;
-      text-transform: uppercase;
-    }
-
-    .alcohol-badge {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      background: rgba(13, 13, 13, 0.9);
-      border: 1px solid var(--gold);
-      color: var(--gold-light);
-      font-size: 0.68rem;
-      font-weight: 700;
-      padding: 4px 9px;
-      border-radius: 20px;
-    }
-
-    .product-info {
-      padding: 16px;
-      text-align: center;
-    }
-
-    .product-name {
-      font-size: 1.15rem;
-      color: #fff;
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
-
-    .product-house {
-      font-size: 0.75rem;
-      color: var(--gold);
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-
-    .product-price-row {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      margin-bottom: 14px;
-    }
-
-    .price-pkr {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--gold-light);
-    }
-
-    .price-usd {
-      font-size: 0.82rem;
-      color: var(--text-secondary);
-      background: rgba(255,255,255,0.06);
-      padding: 3px 8px;
-      border-radius: 6px;
-    }
-
-    .notes-tagline {
-      font-size: 0.76rem;
-      color: #b0b0b0;
-      margin-bottom: 14px;
-      line-height: 1.45;
-    }
-
-    .card-actions {
-      display: flex;
-      gap: 8px;
-      margin-top: 8px;
-    }
-
-    .order-whatsapp-btn {
-      flex: 1;
-      background: var(--whatsapp);
-      color: #0b2f15;
-      font-weight: 800;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      padding: 12px;
-      border-radius: 10px;
-      font-size: 0.85rem;
-    }
-
-    .delete-btn {
-      display: none;
-      background: #b91c1c;
-      color: #fff;
-      border: none;
-      border-radius: 10px;
-      padding: 0 12px;
-      font-size: 0.75rem;
-      cursor: pointer;
-    }
-
-    .delete-btn.show-admin {
-      display: block;
-    }
-
-    .app-footer {
-      text-align: center;
-      padding: 24px 16px;
-      font-size: 0.76rem;
-      color: var(--text-secondary);
-      border-top: 1px solid rgba(212,175,55,0.2);
-      margin-top: 24px;
-    }
-
-    .app-footer span {
-      color: var(--gold-light);
-      font-weight: 600;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfume Store</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 20px; }
+        .container { max-width: 1200px; margin: auto; }
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .product-card { background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: center; }
+        .product-card img { max-width: 100%; height: 200px; object-fit: cover; border-radius: 4px; }
+        .admin-panel { background: white; padding: 20px; border-radius: 8px; margin-top: 30px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        input, button { padding: 10px; margin: 5px 0; width: 100%; box-sizing: border-box; }
+        button { background: #28a745; color: white; border: none; cursor: pointer; border-radius: 4px; }
+        button.delete-btn { background: #dc3545; }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <div class="header">
+            <h1>Perfume Store</h1>
+            <button onclick="toggleAdmin()" style="width: auto;">Admin Panel</button>
+        </div>
 
-  <header class="brand-header">
-    <div class="brand-logo-area">
-      <div class="brand-crest" id="headerCrest">ZM</div>
-      <div class="brand-title-wrap">
-        <h1 id="headerBrandTitle">ZM Fragrances</h1>
-        <p id="headerBrandSub">ZAKIR & Mengal • Luxury Line</p>
-      </div>
-    </div>
-    <button class="admin-toggle-btn" onclick="toggleAdminBox()">
-      🔒 Admin Panel
-    </button>
-  </header>
+        <div class="product-grid" id="productGrid">
+            <!-- Products will load here -->
+        </div>
 
-  <div class="hero-banner">
-    <h2 id="bannerTitle">ZM FRAGRANCES — EXCLUSIVE PRINTED COLLECTION</h2>
-    <p>100% Original Impression • 0% Alcohol • Direct WhatsApp Order System</p>
-  </div>
-
-  <div class="login-box" id="loginBox">
-    <h3 style="color: var(--gold); font-size: 0.9rem; margin-bottom: 8px;">ایڈمن پاسورڈ درج کریں</h3>
-    <div class="form-group">
-      <input type="password" id="adminPassInput" placeholder="Password لکھیں (جیسے 1234)">
-    </div>
-    <button class="btn-gold" onclick="verifyAdminPassword()">لاگ ان کریں</button>
-  </div>
-
-  <div class="admin-panel" id="adminPanel">
-    <h3>Brand Settings (نام تبدیل کریں)</h3>
-    <div class="form-group">
-      <label>Main Brand Name (e.g. ZM Fragrances)</label>
-      <input type="text" id="settingBrandName" value="ZM Fragrances">
-    </div>
-    <div class="form-group">
-      <label>Bottle Sub-Label Name (e.g. Zakir & Mengal)</label>
-      <input type="text" id="settingBottleSub" value="Zakir & Mengal">
-    </div>
-    <button class="btn-gold" style="margin-bottom: 16px;" onclick="saveBrandSettings()">Update Brand Name</button>
-
-    <h3 style="border-top: 1px solid #333; padding-top: 14px;">Add New Perfume & Upload Photo</h3>
-    <div class="form-group">
-      <label>Perfume Name (پرفیوم کا نام)</label>
-      <input type="text" id="newPerfumeName" placeholder="Enter Perfume Name">
-    </div>
-    <div class="form-group">
-      <label>Price in PKR (مثلاً 3500)</label>
-      <input type="number" id="newPerfumePricePKR" placeholder="3500">
-    </div>
-    <div class="form-group">
-      <label>Price in USD ($)</label>
-      <input type="text" id="newPerfumePriceUSD" placeholder="$12.50">
-    </div>
-    <div class="form-group">
-      <label>Upload Bottle Image (گیلری سے تصویر چنیں)</label>
-      <input type="file" id="newPerfumeImageInput" accept="image/*">
-    </div>
-    <div class="form-group">
-      <label>Scent / Notes Description</label>
-      <input type="text" id="newPerfumeNotes" placeholder="Long Lasting • Rose, Saffron & Oud">
-    </div>
-    <button class="btn-gold" onclick="addNewPerfumeCard()">Save & Display Perfume</button>
-    <button class="btn-reset" onclick="resetDefaultProducts()">Reset Default Products (ڈیفالٹ پرفیوم واپس لائیں)</button>
-  </div>
-
-  <main class="products-container" id="productsGrid">
-    <!-- Products will load here dynamically -->
-  </main>
-
-  <footer class="app-footer">
-    © 2026 <span id="footerBrandName">ZM Fragrances</span> by <span id="footerSubName">ZAKIR & Mengal</span> • WhatsApp: +92 335 7290695
-  </footer>
-
-  <script>
-    const ADMIN_PASSWORD = '1234'; // آپ یہاں پاسورڈ بدل سکتے ہیں
-    let isAdminLoggedIn = false;
-
-    const defaultProducts = [
-      {
-        id: 1,
-        name: 'Aud Allail',
-        pricePKR: '3,500',
-        priceUSD: '$12.50 USD',
-        notes: 'Long Lasting • Premium Quality • Rich & Intense<br>Rose, Saffron, Warm Amber & Deep Agarwood',
-        img: 'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=700&q=80'
-      },
-      {
-        id: 2,
-        name: 'Baccarat Rouge Edition',
-        pricePKR: '4,800',
-        priceUSD: '$17.00 USD',
-        notes: 'Long Lasting • Amber Floral Signature<br>Jasmine, Saffron, Cedarwood & Ambergris',
-        img: 'https://images.unsplash.com/photo-1547887537-6158d64c35b3?auto=format&fit=crop&w=700&q=80'
-      },
-      {
-        id: 3,
-        name: 'Khamra Luxe',
-        pricePKR: '3,900',
-        priceUSD: '$14.00 USD',
-        notes: 'Long Lasting • Gourmand & Spicy Warmth<br>Cinnamon, Praline, Vanilla & Tonka Bean',
-        img: 'https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=700&q=80'
-      }
-    ];
-
-    let brandConfig = JSON.parse(localStorage.getItem('zm_brand_config')) || {
-      mainName: 'ZM Fragrances',
-      subName: 'Zakir & Mengal'
-    };
-
-    let savedProducts = JSON.parse(localStorage.getItem('zm_products_list'));
-    let productsList = (savedProducts && savedProducts.length > 0) ? savedProducts : defaultProducts;
-
-    function applyBrandConfig() {
-      document.getElementById('headerBrandTitle').innerText = brandConfig.mainName;
-      document.getElementById('bannerTitle').innerText = `${brandConfig.mainName.toUpperCase()} — EXCLUSIVE PRINTED COLLECTION`;
-      document.getElementById('footerBrandName').innerText = brandConfig.mainName;
-      document.getElementById('footerSubName').innerText = brandConfig.subName;
-      document.getElementById('settingBrandName').value = brandConfig.mainName;
-      document.getElementById('settingBottleSub').value = brandConfig.subName;
-      renderProducts();
-    }
-
-    function toggleAdminBox() {
-      if (!isAdminLoggedIn) {
-        document.getElementById('loginBox').classList.toggle('open');
-      } else {
-        document.getElementById('adminPanel').classList.toggle('open');
-      }
-    }
-
-    function verifyAdminPassword() {
-      const inputPass = document.getElementById('adminPassInput').value;
-      if (inputPass === ADMIN_PASSWORD) {
-        isAdminLoggedIn = true;
-        alert('خوش آمدید! ایڈমিন پینل انلاک ہو گیا ہے۔');
-        document.getElementById('loginBox').classList.remove('open');
-        document.getElementById('adminPanel').classList.add('open');
-        renderProducts();
-      } else {
-        alert('غلط پاسورڈ! درست پاسورڈ درج کریں (ڈیفالٹ: 1234)');
-      }
-    }
-
-    function saveBrandSettings() {
-      brandConfig.mainName = document.getElementById('settingBrandName').value.trim() || 'ZM Fragrances';
-      brandConfig.subName = document.getElementById('settingBottleSub').value.trim() || 'Zakir & Mengal';
-      localStorage.setItem('zm_brand_config', JSON.stringify(brandConfig));
-      applyBrandConfig();
-      alert('برینڈ کا نام اپڈیٹ ہو گیا!');
-    }
-
-    function renderProducts() {
-      const container = document.getElementById('productsGrid');
-      container.innerHTML = '';
-      productsList.forEach((prod) => {
-        const waText = encodeURIComponent(
-          `Assalam-o-Alaikum ${brandConfig.mainName}, I want to order:\n• Perfume: ${prod.name}\n• Brand: ${brandConfig.mainName} (${brandConfig.subName})\n• Price: Rs. ${prod.pricePKR} (0% Alcohol)`
-        );
-
-        const card = document.createElement('article');
-        card.className = 'product-card';
-        card.innerHTML = `
-          <div class="card-brand-tag">${brandConfig.mainName.toUpperCase()} — ${brandConfig.subName.toUpperCase()}</div>
-          <div class="image-stage">
-            <span class="alcohol-badge">0% Alcohol</span>
-            <img src="${prod.img}" alt="${prod.name}">
-            <div class="bottle-label-overlay">
-              <span class="label-zm">ZM</span>
-              <span class="label-zakir">${brandConfig.subName}</span>
+        <div class="admin-panel" id="adminPanel" style="display: none;">
+            <h2>Admin Login / Add Product</h2>
+            <div id="loginSection">
+                <input type="password" id="adminPassword" placeholder="Enter Admin Password">
+                <button onclick="loginAdmin()">Login</button>
             </div>
-          </div>
-          <div class="product-info">
-            <h2 class="product-name">${prod.name}</h2>
-            <div class="product-house">${brandConfig.subName.toUpperCase()} COLLECTION</div>
-            <div class="product-price-row">
-              <span class="price-pkr">Rs. ${prod.pricePKR}</span>
-              <span class="price-usd">${prod.priceUSD}</span>
+            
+            <div id="addProductSection" style="display: none;">
+                <h3>Add New Perfume</h3>
+                <input type="text" id="perfumeName" placeholder="Perfume Name">
+                <input type="number" id="perfumePricePkr" placeholder="Price in PKR">
+                <input type="number" id="perfumePriceUsd" placeholder="Price in USD">
+                <input type="file" id="perfumeImage" accept="image/*">
+                <button onclick="addPerfume()">Save Product Online</button>
+                <button onclick="logoutAdmin()" style="background: #6c757d;">Logout</button>
             </div>
-            <p class="notes-tagline">${prod.notes}</p>
-            <div class="card-actions">
-              <a class="order-whatsapp-btn" href="https://wa.me/923357290695?text=${waText}" target="_blank">
-                <span>واتس ایپ پر آرڈر کریں</span>
-              </a>
-              <button class="delete-btn ${isAdminLoggedIn ? 'show-admin' : ''}" onclick="deleteProduct(${prod.id})">🗑️ Delete</button>
-            </div>
-          </div>
-        `;
-        container.appendChild(card);
-      });
-    }
+        </div>
+    </div>
 
-    function addNewPerfumeCard() {
-      const name = document.getElementById('newPerfumeName').value.trim();
-      const pricePKR = document.getElementById('newPerfumePricePKR').value.trim();
-      const priceUSD = document.getElementById('newPerfumePriceUSD').value.trim() || '$12.00 USD';
-      const notes = document.getElementById('newPerfumeNotes').value.trim() || 'Long Lasting • 0% Alcohol Luxury Scent';
-      const fileInput = document.getElementById('newPerfumeImageInput');
+    <script>
+        const JSONBIN_API_KEY = '$2a$10$d3QbxfNLV.PiNAbuaFFa/.U6EFvtgFpt0fZkres1qsVXt5SdCjmq';
+        const JSONBIN_BIN_ID = '6aa68542ac6210605ac790b8';
+        const JSONBIN_URL = `https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}`;
+        const WHATSAPP_NUMBER = '923357290695';
 
-      if (!name || !pricePKR) {
-        alert('براہ کرم پرفیوم کا نام اور قیمت درج کریں!');
-        return;
-      }
+        // یہاں آپ اپنا خفیہ پاسورڈ سیٹ کر سکتے ہیں (مثال کے طور پر: 'ziad786')
+        const DEFAULT_SECRET_PASS = '1234'; 
 
-      if (fileInput.files && fileInput.files[0]) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-          pushNewProduct(name, pricePKR, priceUSD, notes, e.target.result);
-          clearForm();
+        let isAdminLoggedIn = false;
+
+        async function loadProductsOnline() {
+            try {
+                const res = await fetch(JSONBIN_URL + '/latest', {
+                    headers: { 'X-Master-Key': JSONBIN_API_KEY }
+                });
+                const data = await res.json();
+                const perfumes = data.record.perfumes || [];
+                renderProducts(perfumes);
+            } catch (error) {
+                console.error('Error loading products:', error);
+            }
+        }
+
+        function renderProducts(perfumes) {
+            const grid = document.getElementById('productGrid');
+            grid.innerHTML = '';
+            perfumes.forEach((p, index) => {
+                const waMessage = encodeURIComponent(`I want to order ${p.name} (PKR ${p.pkr} / USD ${p.usd})`);
+                grid.innerHTML += `
+                    <div class="product-card">
+                        <img src="${p.image}" alt="${p.name}">
+                        <h3>${p.name}</h3>
+                        <p>PKR: ${p.pkr} | USD: ${p.usd}</p>
+                        <a href="https://wa.me/${WHATSAPP_NUMBER}?text=${waMessage}" target="_blank">
+                            <button style="background: #25D366;">Order on WhatsApp</button>
+                        </a>
+                        ${isAdminLoggedIn ? `<button class="delete-btn" onclick="deletePerfume(${index})">Delete</button>` : ''}
+                    </div>
+                `;
+            });
+        }
+
+        function toggleAdmin() {
+            const panel = document.getElementById('adminPanel');
+            panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
+        }
+
+        async function loginAdmin() {
+            const pass = document.getElementById('adminPassword').value;
+            try {
+                const res = await fetch(JSONBIN_URL + '/latest', {
+                    headers: { 'X-Master-Key': JSONBIN_API_KEY }
+                });
+                const data = await res.json();
+                // چیک کرے گا کہ ڈیٹا بیس میں پاسورڈ کیا سیٹ ہے، اگر نہیں تو const DEFAULT_SECRET_PASS = 'ziad_zakir_786'; 
+استعمال کرے گا
+                const savedPass = data.record.adminPass || DEFAULT_SECRET_PASS;
+
+                if (pass === savedPass) {
+                    isAdminLoggedIn = true;
+                    document.getElementById('loginSection').style.display = 'none';
+                    document.getElementById('addProductSection').style.display = 'block';
+                    loadProductsOnline();
+                } else {
+                    alert('غلط پاسورڈ! براہ کرم درست پاسورڈ درج کریں۔');
+                }
+            } catch (err) {
+                alert('لاگ ان میں مسئلہ آیا ہے، دوبارہ کوشش کریں۔');
+            }
+        }
+
+        function logoutAdmin() {
+            isAdminLoggedIn = false;
+            document.getElementById('loginSection').style.display = 'block';
+            document.getElementById('addProductSection').style.display = 'none';
+            document.getElementById('adminPassword').value = '';
+            loadProductsOnline();
+        }
+
+        function addPerfume() {
+            const name = document.getElementById('perfumeName').value;
+            const pkr = document.getElementById('perfumePricePkr').value;
+            const usd = document.getElementById('perfumePriceUsd').value;
+            const imageFile = document.getElementById('perfumeImage').files[0];
+
+            if (!name || !pkr || !usd || !imageFile) {
+                alert('براہ کرم تمام خلیے (Fields) پُر کریں!');
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = async function(e) {
+                const base64Image = e.target.result;
+
+                const res = await fetch(JSONBIN_URL + '/latest', {
+                    headers: { 'X-Master-Key': JSONBIN_API_KEY }
+                });
+                const currentData = await res.json();
+                let perfumes = currentData.record.perfumes || [];
+                let adminPass = currentData.record.adminPass || DEFAULT_SECRET_PASS;
+
+                perfumes.push({
+                    name: name,
+                    pkr: pkr,
+                    usd: usd,
+                    image: base64Image
+                });
+
+                await fetch(JSONBIN_URL, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Master-Key': JSONBIN_API_KEY
+                    },
+                    body: JSON.stringify({ 
+                        perfumes: perfumes,
+                        adminPass: adminPass 
+                    })
+                });
+
+                alert('پروڈکٹ آن لائن محفوظ کر دی گئی ہے!');
+                document.getElementById('perfumeName').value = '';
+                document.getElementById('perfumePricePkr').value = '';
+                document.getElementById('perfumePriceUsd').value = '';
+                document.getElementById('perfumeImage').value = '';
+                loadProductsOnline();
+            };
+            reader.readAsDataURL(imageFile);
+        }
+
+        async function deletePerfume(index) {
+            const res = await fetch(JSONBIN_URL + '/latest', {
+                headers: { 'X-Master-Key': JSONBIN_API_KEY }
+            });
+            const currentData = await res.json();
+            let perfumes = currentData.record.perfumes || [];
+            let adminPass = currentData.record.adminPass || DEFAULT_SECRET_PASS;
+            perfumes.splice(index, 1);
+
+            await fetch(JSONBIN_URL, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Master-Key': JSONBIN_API_KEY
+                },
+                body: JSON.stringify({ 
+                    perfumes: perfumes,
+                    adminPass: adminPass 
+                })
+            });
+
+            alert('پروڈکٹ ڈیلیٹ کر دی گئی ہے!');
+            loadProductsOnline();
+        }
+
+        window.onload = function() {
+            loadProductsOnline();
         };
-        reader.readAsDataURL(fileInput.files[0]);
-      } else {
-        const defaultImg = 'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=700&q=80';
-        pushNewProduct(name, pricePKR, priceUSD, notes, defaultImg);
-        clearForm();
-      }
-    }
-
-    function pushNewProduct(name, pricePKR, priceUSD, notes, img) {
-      const newObj = {
-        id: Date.now(),
-        name,
-        pricePKR,
-        priceUSD,
-        notes,
-        img
-      };
-      productsList.unshift(newObj);
-      localStorage.setItem('zm_products_list', JSON.stringify(productsList));
-      renderProducts();
-    }
-
-    function deleteProduct(id) {
-      if (!isAdminLoggedIn) {
-        alert('صرف ایڈমিন ہی پروڈکٹ ڈیلیٹ کر سکتا ہے!');
-        return;
-      }
-      if (confirm('کیا آپ واقعی یہ پروڈکٹ ڈیلیٹ کرنا چاہتے ہیں؟')) {
-        productsList = productsList.filter(p => p.id !== id);
-        localStorage.setItem('zm_products_list', JSON.stringify(productsList));
-        renderProducts();
-      }
-    }
-
-    function resetDefaultProducts() {
-      if (confirm('کیا آپ پرانے ڈیفالٹ پرفیوم واپس لانا چاہتے ہیں؟')) {
-        productsList = defaultProducts;
-        localStorage.setItem('zm_products_list', JSON.stringify(productsList));
-        renderProducts();
-      }
-    }
-
-    function clearForm() {
-      document.getElementById('newPerfumeName').value = '';
-      document.getElementById('newPerfumePricePKR').value = '';
-      document.getElementById('newPerfumePriceUSD').value = '';
-      document.getElementById('newPerfumeNotes').value = '';
-      document.getElementById('newPerfumeImageInput').value = '';
-    }
-
-    applyBrandConfig();
-  </script>
+    </script>
 </body>
 </html>
