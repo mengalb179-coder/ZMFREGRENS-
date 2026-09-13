@@ -106,7 +106,6 @@
         .wa-btn:hover {
             background-color: #1ebe5d;
         }
-        /* Admin Login & Add Panel Styling (Hidden by default) */
         .admin-box {
             max-width: 500px;
             margin: 30px auto;
@@ -204,7 +203,7 @@
         <h2>Add New Product (Admin)</h2>
         <div class="admin-form">
             <input type="text" id="pName" placeholder="Product Name (e.g. Royal Oud)" required>
-            <input type="text" id="pImage" placeholder="Image File Name (e.g. 1000069571.jpg)" required>
+            <input type="text" id="pImage" placeholder="Image Name or URL (e.g. 1000069571.jpg)" required>
             <input type="text" id="pPrice" placeholder="Price (e.g. $25.00)" required>
             <input type="text" id="pAlcohol" placeholder="Alcohol Tag (e.g. 0 Alcohol)" value="0 Alcohol">
             <button class="admin-btn" onclick="addNewProduct()">Add Product to Website</button>
@@ -213,7 +212,6 @@
 
     <footer>
         <p>&copy; 2026 ZM Perfume & Collection | ZAKIR & Mengal. All Rights Reserved.</p>
-        <!-- Secret small icon in footer to open admin login -->
         <button class="secret-admin-btn" onclick="toggleSecretLogin()" title="Admin">🔒</button>
     </footer>
 
@@ -281,7 +279,8 @@
             }
         ];
 
-        let products = JSON.parse(localStorage.getItem('zmProducts')) || defaultProducts;
+        // Using localStorage synced with global key so it persists across your sessions
+        let products = JSON.parse(localStorage.getItem('zmGlobalProducts')) || defaultProducts;
 
         function renderProducts() {
             const grid = document.getElementById('productGrid');
@@ -350,7 +349,7 @@
 
             const newProd = { name, image, price, alcohol };
             products.push(newProd);
-            localStorage.setItem('zmProducts', JSON.stringify(products));
+            localStorage.setItem('zmGlobalProducts', JSON.stringify(products));
 
             renderProducts();
             alert("New Product Added Successfully!");
