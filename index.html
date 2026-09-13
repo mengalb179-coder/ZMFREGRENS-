@@ -13,7 +13,6 @@
         }
         body {
             background-color: #050d1a;
-            /* یہاں اپنی واٹر/عطر والی بیک گراؤنڈ تصویر کا نام لکھیں یا آن لائن لنک استعمال کریں */
             background-image: linear-gradient(rgba(5, 13, 26, 0.75), rgba(5, 13, 26, 0.85)), url('https://images.unsplash.com/photo-1547887537-6158d64c35b3?q=80&w=1920&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
@@ -107,6 +106,53 @@
         .wa-btn:hover {
             background-color: #1ebe5d;
         }
+        /* Admin Login & Add Panel Styling (Hidden by default) */
+        .admin-box {
+            max-width: 500px;
+            margin: 30px auto;
+            background: rgba(10, 15, 25, 0.95);
+            border: 2px solid #d4af37;
+            border-radius: 10px;
+            padding: 20px;
+            display: none;
+        }
+        .admin-box h2 {
+            text-align: center;
+            color: #f9d342;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        .admin-box input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 12px;
+            background: #111827;
+            border: 1px solid #d4af37;
+            color: #fff;
+            border-radius: 5px;
+        }
+        .admin-btn {
+            width: 100%;
+            padding: 10px;
+            background: #d4af37;
+            color: #000;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+            color: #fff;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+        .hidden {
+            display: none;
+        }
         footer {
             text-align: center;
             margin-top: 50px;
@@ -115,6 +161,20 @@
             border-top: 1px solid #d4af37;
             background: rgba(0, 0, 0, 0.85);
             border-radius: 10px;
+            position: relative;
+        }
+        .secret-admin-btn {
+            position: absolute;
+            right: 15px;
+            bottom: 15px;
+            background: transparent;
+            border: none;
+            color: #555;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .secret-admin-btn:hover {
+            color: #d4af37;
         }
     </style>
 </head>
@@ -129,12 +189,36 @@
         <!-- Products will be loaded here -->
     </div>
 
+    <!-- Hidden/Secret Admin Login Box -->
+    <div class="admin-box" id="loginBox">
+        <h2>Admin Login</h2>
+        <input type="password" id="adminPassInput" placeholder="Enter Password (admin123)" required>
+        <label class="checkbox-container">
+            <input type="checkbox" id="showPassCheck" onclick="togglePasswordVisibility()"> Show Password
+        </label>
+        <button class="admin-btn" onclick="checkAdminPassword()">Login</button>
+    </div>
+
+    <!-- Add Product Panel (opens after login) -->
+    <div class="admin-box hidden" id="adminPanel">
+        <h2>Add New Product (Admin)</h2>
+        <div class="admin-form">
+            <input type="text" id="pName" placeholder="Product Name (e.g. Royal Oud)" required>
+            <input type="text" id="pImage" placeholder="Image File Name (e.g. 1000069571.jpg)" required>
+            <input type="text" id="pPrice" placeholder="Price (e.g. $25.00)" required>
+            <input type="text" id="pAlcohol" placeholder="Alcohol Tag (e.g. 0 Alcohol)" value="0 Alcohol">
+            <button class="admin-btn" onclick="addNewProduct()">Add Product to Website</button>
+        </div>
+    </div>
+
     <footer>
         <p>&copy; 2026 ZM Perfume & Collection | ZAKIR & Mengal. All Rights Reserved.</p>
+        <!-- Secret small icon in footer to open admin login -->
+        <button class="secret-admin-btn" onclick="toggleSecretLogin()" title="Admin">🔒</button>
     </footer>
 
     <script>
-        const products = [
+        const defaultProducts = [
             {
                 name: "Asad & Khamra Ltafa",
                 image: "Mens_3fb70373-97d6-4a91-94c6-bbbbe55b8c56.jpg",
@@ -197,26 +281,86 @@
             }
         ];
 
-        const grid = document.getElementById('productGrid');
-        const phoneNumber = "923357290695";
+        let products = JSON.parse(localStorage.getItem('zmProducts')) || defaultProducts;
 
-        products.forEach(p => {
-            const message = encodeURIComponent(`Hello ZM Perfume & Collection, I want to order: ${p.name}`);
-            const waLink = `https://wa.me/${phoneNumber}?text=${message}`;
+        function renderProducts() {
+            const grid = document.getElementById('productGrid');
+            const phoneNumber = "923357290695";
+            grid.innerHTML = '';
 
-            const card = `
-                <div class="card">
-                    <img src="${p.image}" alt="${p.name}">
-                    <div class="card-content">
-                        <span class="badge">${p.alcohol}</span>
-                        <h3>${p.name}</h3>
-                        <div class="price">${p.price}</div>
-                        <a href="${waLink}" target="_blank" class="wa-btn">Order on WhatsApp</a>
+            products.forEach(p => {
+                const message = encodeURIComponent(`Hello ZM Perfume & Collection, I want to order: ${p.name}`);
+                const waLink = `https://wa.me/${phoneNumber}?text=${message}`;
+
+                const card = `
+                    <div class="card">
+                        <img src="${p.image}" alt="${p.name}">
+                        <div class="card-content">
+                            <span class="badge">${p.alcohol}</span>
+                            <h3>${p.name}</h3>
+                            <div class="price">${p.price}</div>
+                            <a href="${waLink}" target="_blank" class="wa-btn">Order on WhatsApp</a>
+                        </div>
                     </div>
-                </div>
-            `;
-            grid.innerHTML += card;
-        });
+                `;
+                grid.innerHTML += card;
+            });
+        }
+
+        function toggleSecretLogin() {
+            const loginBox = document.getElementById('loginBox');
+            if (loginBox.style.display === 'block') {
+                loginBox.style.display = 'none';
+            } else {
+                loginBox.style.display = 'block';
+            }
+        }
+
+        function togglePasswordVisibility() {
+            const passInput = document.getElementById('adminPassInput');
+            const showCheck = document.getElementById('showPassCheck');
+            if (showCheck.checked) {
+                passInput.type = 'text';
+            } else {
+                passInput.type = 'password';
+            }
+        }
+
+        function checkAdminPassword() {
+            const pass = document.getElementById('adminPassInput').value;
+            if (pass === "admin123") {
+                document.getElementById('loginBox').style.display = 'none';
+                document.getElementById('adminPanel').classList.remove('hidden');
+                alert("Login Successful! You can now add products.");
+            } else {
+                alert("Wrong Password! Please try again.");
+            }
+        }
+
+        function addNewProduct() {
+            const name = document.getElementById('pName').value.trim();
+            const image = document.getElementById('pImage').value.trim();
+            const price = document.getElementById('pPrice').value.trim();
+            const alcohol = document.getElementById('pAlcohol').value.trim();
+
+            if (!name || !image || !price) {
+                alert("Please fill all required fields!");
+                return;
+            }
+
+            const newProd = { name, image, price, alcohol };
+            products.push(newProd);
+            localStorage.setItem('zmProducts', JSON.stringify(products));
+
+            renderProducts();
+            alert("New Product Added Successfully!");
+
+            document.getElementById('pName').value = '';
+            document.getElementById('pImage').value = '';
+            document.getElementById('pPrice').value = '';
+        }
+
+        renderProducts();
     </script>
 </body>
 </html>
