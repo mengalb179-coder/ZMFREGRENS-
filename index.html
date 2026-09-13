@@ -1,356 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ZM Fragrances | ZAKIR & Mengal</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-    body {
-      background-color: #0b0b0b;
-      color: #f5f5f5;
-      min-height: 100vh;
-      padding-bottom: 50px;
-    }
-    header {
-      background: linear-gradient(135deg, #111 0%, #1a1a1a 100%);
-      border-bottom: 2px solid #d4af37;
-      padding: 20px 15px;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    header h1 {
-      color: #d4af37;
-      font-size: 24px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-    }
-    header p {
-      color: #aaa;
-      font-size: 13px;
-      margin-top: 5px;
-    }
-    .search-container {
-      max-width: 500px;
-      margin: 20px auto;
-      padding: 0 15px;
-    }
-    .search-box {
-      width: 100%;
-      padding: 12px 15px;
-      background-color: #1a1a1a;
-      border: 1px solid #d4af37;
-      border-radius: 25px;
-      color: #fff;
-      font-size: 15px;
-      outline: none;
-    }
-    .search-box::placeholder {
-      color: #888;
-    }
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 15px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-    }
-    .card {
-      background-color: #141414;
-      border: 1px solid #2a2a2a;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
-      transition: transform 0.3s ease, border-color 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-      border-color: #d4af37;
-    }
-    .card-img-wrapper {
-      position: relative;
-      width: 100%;
-      height: 250px;
-      background-color: #000;
-      overflow: hidden;
-    }
-    .card-img-wrapper img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .badge-alcohol {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      background-color: #d4af37;
-      color: #000;
-      font-size: 11px;
-      font-weight: bold;
-      padding: 4px 8px;
-      border-radius: 4px;
-      text-transform: uppercase;
-    }
-    .card-content {
-      padding: 15px;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .product-title {
-      font-size: 18px;
-      color: #d4af37;
-      margin-bottom: 8px;
-      font-weight: 600;
-    }
-    .price-box {
-      margin: 10px 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #1e1e1e;
-      padding: 8px 12px;
-      border-radius: 6px;
-    }
-    .price-pkr {
-      color: #fff;
-      font-weight: bold;
-      font-size: 15px;
-    }
-    .price-usd {
-      color: #d4af37;
-      font-size: 13px;
-    }
-    .whatsapp-btn {
-      display: block;
-      width: 100%;
-      background-color: #25D366;
-      color: #fff;
-      text-align: center;
-      padding: 12px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 14px;
-      margin-top: 10px;
-      transition: background 0.3s;
-    }
-    .whatsapp-btn:hover {
-      background-color: #1ebe5d;
-    }
-    footer {
-      text-align: center;
-      margin-top: 40px;
-      color: #666;
-      font-size: 13px;
-      border-top: 1px solid #222;
-      padding-top: 20px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZM Perfume & Collection | ZAKIR & Mengal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #0b0b0b;
+            color: #d4af37;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 2px solid #d4af37;
+            margin-bottom: 30px;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            color: #f9d342;
+            letter-spacing: 2px;
+        }
+        header p {
+            color: #aaa;
+            margin-top: 5px;
+            font-size: 1.1rem;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .card {
+            background: #141414;
+            border: 1px solid #d4af37;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card img {
+            width: 100%
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 1px solid #d4af37;
+        }
+        .card-content {
+            padding: 15px;
+            text-align: center;
+        }
+        .card-content h3 {
+            font-size: 1.25rem;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+        .badge {
+            display: inline-block;
+            background: #d4af37;
+            color: #000;
+            font-size: 0.75rem;
+            font-weight: bold;
+            padding: 3px 8px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        .price {
+            font-size: 1.2rem;
+            color: #f9d342;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .wa-btn {
+            display: block;
+            width: 100%
+            background-color: #25d366;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .wa-btn:hover {
+            background-color: #1ebe5d;
+        }
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #777;
+            border-top: 1px solid #333;
+        }
+    </style>
 </head>
 <body>
 
-  <header>
-    <h1>ZM Fragrances</h1>
-    <p>ZAKIR & Mengal | Luxury Collection</p>
-  </header>
+    <header>
+        <h1>ZM PERFUME & COLLECTION</h1>
+        <p>ZAKIR & MENGAL — Luxury Fragrances</p>
+    </header>
 
-  <div class="search-container">
-    <input type="text" id="searchInput" class="search-box" placeholder="Search luxury perfumes..." onkeyup="searchProducts()">
-  </div>
-
-  <div class="container" id="productGrid">
-    <!-- Product 1 -->
-    <div class="card" data-name="Khamra">
-      <div class="card-img-wrapper">
-        <span class="badge-alcohol">0% Alcohol</span>
-        <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=500" alt="Khamra">
-      </div>
-      <div class="card-content">
-        <div class="product-title">Khamra</div>
-        <div class="price-box">
-          <span class="price-pkr">PKR 4,500</span>
-          <span class="price-usd">$16.00 USD</span>
-        </div>
-        <a href="https://wa.me/923357290695?text=Hello,%20I%20want%20to%20order%20Khamra%20(0%20Alcohol)" class="whatsapp-btn" target="_blank">Order on WhatsApp</a>
-      </div>
+    <div class="container" id="productGrid">
+        <!-- Products will be loaded here -->
     </div>
 
-    <!-- Product 2 -->
-    <div class="card" data-name="Baqrate">
-      <div class="card-img-wrapper">
-        <span class="badge-alcohol">0% Alcohol</span>
-        <img src="https://images.unsplash.com/photo-1547887537-6158d64c35b3?w=500" alt="Baqrate">
-      </div>
-      <div class="card-content">
-        <div class="product-title">Baqrate</div>
-        <div class="price-box">
-          <span class="price-pkr">PKR 5,200</span>
-          <span class="price-usd">$19.00 USD</span>
-        </div>
-        <a href="https://wa.me/923357290695?text=Hello,%20I%20want%20to%20order%20Baqrate%20(0%20Alcohol)" class="whatsapp-btn" target="_blank">Order on WhatsApp</a>
-      </div>
-    </div>
+    <footer>
+        <p>&copy; 2026 ZM Perfume & Collection | ZAKIR & Mengal. All Rights Reserved.</p>
+    </footer>
 
-    <!-- Product 3 -->
-    <div class="card" data-name="Udelel">
-      <div class="card-img-wrapper">
-        <span class="badge-alcohol">0% Alcohol</span>
-        <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=500" alt="Udelel">
-      </div>
-      <div class="card-content">
-        <div class="product-title">Udelel</div>
-        <div class="price-box">
-          <span class="price-pkr">PKR 4,800</span>
-          <span class="price-usd">$17.50 USD</span>
-        </div>
-        <a href="https://wa.me/923357290695?text=Hello,%20I%20want%20to%20order%20Udelel%20(0%20Alcohol)" class="whatsapp-btn" target="_blank">Order on WhatsApp</a>
-      </div>
-    </div>
+    <script>
+        const products = [
+            {
+                name: "Asad & Khamra Ltafa",
+                image: "1000069571.jpg",
+                price: "$25.00",
+                alcohol: "0 Alcohol"
+            },
+            {
+                name: "White Musk",
+                image: "1000069633.jpg",
+                price: "$18.00",
+                alcohol: "0 Alcohol"
+            },
+            {
+                name: "Baqrate",
+                image: "1000069632.jpg",
+                price: "$30.00",
+                alcohol: "0 Alcohol"
+            },
+            {
+                name: "Janan",
+                image: "1000069635.jpg",
+                price: "$22.00",
+                alcohol: "0 Alcohol"
+            },
+            {
+                name: "Khamra",
+                image: "1000069373.jpg",
+                price: "$28.00",
+                alcohol: "0 Alcohol"
+            },
+            {
+                name: "Shamsa",
+                image: "1000069364.jpg",
+                price: "$15.00",
+                alcohol: "0 Alcohol"
+            },
+            {
+                name: "Wait Oude",
+                image: "1000069368.jpg",
+                price: "$24.00",
+                alcohol: "0 Alcohol"
+            },
+            {
+                name: "Oud Al Layl",
+                image: "1000069372.jpg",
+                price: "$29.00",
+                alcohol: "0 Alcohol"
+            },
+            {
+                name: "Everyone Fragrance",
+                image: "1000069363.jpg",
+                price: "$20.00",
+                alcohol: "0 Alcohol"
+            },
+            {
+                name: "Kareem",
+                image: "1000069362.jpg",
+                price: "$16.00",
+                alcohol: "0 Alcohol"
+            }
+        ];
 
-    <!-- Product 4 -->
-    <div class="card" data-name="Janan">
-      <div class="card-img-wrapper">
-        <span class="badge-alcohol">0% Alcohol</span>
-        <img src="https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?w=500" alt="Janan">
-      </div>
-      <div class="card-content">
-        <div class="product-title">Janan</div>
-        <div class="price-box">
-          <span class="price-pkr">PKR 3,900</span>
-          <span class="price-usd">$14.00 USD</span>
-        </div>
-        <a href="https://wa.me/923357290695?text=Hello,%20I%20want%20to%20order%20Janan%20(0%20Alcohol)" class="whatsapp-btn" target="_blank">Order on WhatsApp</a>
-      </div>
-    </div>
+        const grid = document.getElementById('productGrid');
+        const phoneNumber = "923357290695";
 
-    <!-- Product 5 -->
-    <div class="card" data-name="Wait musk">
-      <div class="card-img-wrapper">
-        <span class="badge-alcohol">0% Alcohol</span>
-        <img src="https://images.unsplash.com/photo-1595425970377-c9703cf48b6d?w=500" alt="Wait musk">
-      </div>
-      <div class="card-content">
-        <div class="product-title">Wait musk</div>
-        <div class="price-box">
-          <span class="price-pkr">PKR 4,000</span>
-          <span class="price-usd">$14.50 USD</span>
-        </div>
-        <a href="https://wa.me/923357290695?text=Hello,%20I%20want%20to%20order%20Wait%20musk%20(0%20Alcohol)" class="whatsapp-btn" target="_blank">Order on WhatsApp</a>
-      </div>
-    </div>
+        products.forEach(p => {
+            const message = encodeURIComponent(`Hello ZM Perfume & Collection, I want to order: ${p.name} (${p.price})`);
+            const waLink = `https://wa.me/${phoneNumber}?text=${message}`;
 
-    <!-- Product 6 -->
-    <div class="card" data-name="Wait oude">
-      <div class="card-img-wrapper">
-        <span class="badge-alcohol">0% Alcohol</span>
-        <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?w=500" alt="Wait oude">
-      </div>
-      <div class="card-content">
-        <div class="product-title">Wait oude</div>
-        <div class="price-box">
-          <span class="price-pkr">PKR 4,600</span>
-          <span class="price-usd">$16.80 USD</span>
-        </div>
-        <a href="https://wa.me/923357290695?text=Hello,%20I%20want%20to%20order%20Wait%20oude%20(0%20Alcohol)" class="whatsapp-btn" target="_blank">Order on WhatsApp</a>
-      </div>
-    </div>
-
-    <!-- Product 7 -->
-    <div class="card" data-name="Ameerel oude">
-      <div class="card-img-wrapper">
-        <span class="badge-alcohol">0% Alcohol</span>
-        <img src="https://images.unsplash.com/photo-1563170351-be82bc888aa4?w=500" alt="Ameerel oude">
-      </div>
-      <div class="card-content">
-        <div class="product-title">Ameerel oude</div>
-        <div class="price-box">
-          <span class="price-pkr">PKR 5,500</span>
-          <span class="price-usd">$20.00 USD</span>
-        </div>
-        <a href="https://wa.me/923357290695?text=Hello,%20I%20want%20to%20order%20Ameerel%20oude%20(0%20Alcohol)" class="whatsapp-btn" target="_blank">Order on WhatsApp</a>
-      </div>
-    </div>
-
-    <!-- Product 8 -->
-    <div class="card" data-name="Oude">
-      <div class="card-img-wrapper">
-        <span class="badge-alcohol">0% Alcohol</span>
-        <img src="https://images.unsplash.com/photo-1590736969955-71cc94901144?w=500" alt="Oude">
-      </div>
-      <div class="card-content">
-        <div class="product-title">Oude</div>
-        <div class="price-box">
-          <span class="price-pkr">PKR 4,200</span>
-          <span class="price-usd">$15.00 USD</span>
-        </div>
-        <a href="https://wa.me/923357290695?text=Hello,%20I%20want%20to%20order%20Oude%20(0%20Alcohol)" class="whatsapp-btn" target="_blank">Order on WhatsApp</a>
-      </div>
-    </div>
-
-    <!-- Product 9 -->
-    <div class="card" data-name="Kareem">
-      <div class="card-img-wrapper">
-        <span class="badge-alcohol">0% Alcohol</span>
-        <img src="https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?w=500" alt="Kareem">
-      </div>
-      <div class="card-content">
-        <div class="product-title">Kareem</div>
-        <div class="price-box">
-          <span class="price-pkr">PKR 3,800</span>
-          <span class="price-usd">$13.50 USD</span>
-        </div>
-        <a href="https://wa.me/923357290695?text=Hello,%20I%20want%20to%20order%20Kareem%20(0%20Alcohol)" class="whatsapp-btn" target="_blank">Order on WhatsApp</a>
-      </div>
-    </div>
-
-    <!-- Product 10 -->
-    <div class="card" data-name="Asad & khamra ltafa">
-      <div class="card-img-wrapper">
-        <span class="badge-alcohol">0% Alcohol</span>
-        <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=500" alt="Asad & khamra ltafa">
-      </div>
-      <div class="card-content">
-        <div class="product-title">Asad & khamra ltafa</div>
-        <div class="price-box">
-          <span class="price-pkr">PKR 6,000</span>
-          <span class="price-usd">$22.00 USD</span>
-        </div>
-        <a href="https://wa.me/923357290695?text=Hello,%20I%20want%20to%20order%20Asad%20&%20khamra%20ltafa%20(0%20Alcohol)" class="whatsapp-btn" target="_blank">Order on WhatsApp</a>
-      </div>
-    </div>
-  </div>
-
-  <footer>
-    &copy; 2026 ZM Fragrances | ZAKIR & Mengal. All Rights Reserved.
-  </footer>
-
-  <script>
-    function searchProducts() {
-      let input = document.getElementById('searchInput').value.toLowerCase();
-      let cards = document.getElementsByClassName('card');
-      for (let i = 0; i < cards.length; i++) {
-        let name = cards[i].getAttribute('data-name').toLowerCase();
-        if (name.includes(input)) {
-          cards[i].style.display = "";
-        } else {
-          cards[i].style.display = "none";
-        }
-      }
-    }
-  </script>
-
+            const card = `
+                <div class="card">
+                    <img src="${p.image}" alt="${p.name}">
+                    <div class="card-content">
+                        <span class="badge">${p.alcohol}</span>
+                        <h3>${p.name}</h3>
+                        <div class="price">${p.price}</div>
+                        <a href="${waLink}" target="_blank" class="wa-btn">Order on WhatsApp</a>
+                    </div>
+                </div>
+            `;
+            grid.innerHTML += card;
+        });
+    </script>
 </body>
 </html>
