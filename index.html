@@ -130,7 +130,7 @@
 
         function toggleAdminPanel() {
             const panel = document.getElementById('adminPanel');
-            panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
+            panel.style.display = (panel.style.display === 'block') ? 'none' : 'block';
         }
 
         function loginAdmin() {
@@ -259,7 +259,7 @@
                     body: JSON.stringify({ perfumes: perfumes })
                 });
 
-                .alert('پروڈکٹ ڈیلیٹ کر دی گئی ہے!');
+                alert('پروڈکٹ ڈیلیٹ کر دی گئی ہے!');
                 loadProductsOnline();
             } catch (err) {
                 alert('ڈیلیٹ کرنے میں مسئلہ آیا ہے۔');
