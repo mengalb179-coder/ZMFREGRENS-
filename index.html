@@ -1,330 +1,588 @@
 <!DOCTYPE html>
-<html lang="ur" dir="rtl">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZM Perfume & Collection - ZAKIR Mengal</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0b0b0b, #1a1a1a, #111111);
-            color: #ffffff;
-            margin: 0;
-            padding: 20px;
-            text-align: center;
-        }
-        header {
-            background: rgba(20, 20, 20, 0.95);
-            color: #ffd700;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.8);
-            margin-bottom: 30px;
-            border: 2px solid #ffd700;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 32px;
-        }
-        header h2 {
-            margin: 10px 0 0;
-            font-size: 20px;
-            color: #f1f1f1;
-            font-weight: normal;
-        }
-        .container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            max-width: 1300px;
-            margin: 0 auto;
-        }
-        .card {
-            background: #161616;
-            padding: 15px;
-            border-radius: 15px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.6);
-            transition: transform 0.3s ease;
-            border: 1px solid #d4af37;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .card:hover {
-            transform: translateY(-8px);
-        }
-        .card-brand-top {
-            font-size: 15px;
-            color: #ffd700;
-            font-weight: bold;
-            margin-bottom: 10px;
-            letter-spacing: 0.5px;
-            background: rgba(255, 215, 0, 0.1);
-            padding: 5px;
-            border-radius: 5px;
-        }
-        .card img {
-            width: 100%;
-            height: 240px;
-            object-fit: cover;
-            border-radius: 10px;
-            background-color: #222;
-        }
-        .card h3 {
-            margin: 12px 0 5px;
-            font-size: 19px;
-            color: #ffffff;
-        }
-        .card-owner {
-            font-size: 14px;
-            color: #d4af37;
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
-        .price {
-            color: #ffd700;
-            font-weight: bold;
-            font-size: 18px;
-            margin-bottom: 12px;
-        }
-        .whatsapp-btn {
-            background-color: #25d366;
-            color: white;
-            text-decoration: none;
-            padding: 12px 20px;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 16px;
-            display: inline-block;
-            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.4);
-        }
-        .whatsapp-btn:hover {
-            background-color: #1ebd59;
-        }
-        footer {
-            margin-top: 40px;
-            color: #cccccc;
-            font-size: 16px;
-            background: rgba(20, 20, 20, 0.9);
-            padding: 15px;
-            border-radius: 10px;
-            border: 1px solid #333;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title id="pageTitle">ZM Fragrances | Luxury Collection by ZAKIR & Mengal</title>
+  <meta name="theme-color" content="#0d0d0d">
+  <meta name="description" content="ZM Fragrances - 0% Alcohol Luxury Perfumes by ZAKIR & Mengal">
+  <style>
+    :root {
+      --bg-primary: #0d0d0d;
+      --bg-secondary: #161616;
+      --bg-card: #1f1f1f;
+      --gold: #d4af37;
+      --gold-light: #f3e5ab;
+      --gold-dark: #aa820a;
+      --text-primary: #f5f5f5;
+      --text-secondary: #a0a0a0;
+      --whatsapp: #25d366;
+      --whatsapp-hover: #1ebe5d;
+      --border-gold: rgba(212, 175, 55, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      min-height: 100vh;
+      padding-bottom: 90px;
+    }
+
+    .brand-header {
+      background: linear-gradient(135deg, #141414 0%, #1f1f1f 100%);
+      border-bottom: 1.5px solid var(--border-gold);
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+    }
+
+    .brand-logo-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-crest {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1.5px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle, #292415 0%, #0d0d0d 100%);
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 1px;
+    }
+
+    .brand-title-wrap h1 {
+      font-size: 1.25rem;
+      letter-spacing: 2px;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .brand-title-wrap p {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .admin-toggle-btn {
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 7px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.2s;
+    }
+
+    .hero-banner {
+      margin: 16px 14px;
+      padding: 18px 20px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(212,175,55,0.14) 0%, rgba(20,20,20,0.95) 100%);
+      border: 1px solid var(--border-gold);
+      text-align: center;
+    }
+
+    .hero-banner h2 {
+      font-size: 1.05rem;
+      color: var(--gold-light);
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+
+    .hero-banner p {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+    }
+
+    .admin-panel {
+      display: none;
+      margin: 14px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--gold);
+      border-radius: 14px;
+      padding: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    }
+
+    .admin-panel.open {
+      display: block;
+    }
+
+    .admin-panel h3 {
+      font-size: 0.95rem;
+      color: var(--gold);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .form-group {
+      margin-bottom: 12px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      margin-bottom: 5px;
+    }
+
+    .form-group input {
+      width: 100%;
+      background: #111;
+      border: 1px solid #333;
+      color: #fff;
+      padding: 10px 12px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+    }
+
+    .btn-gold {
+      width: 100%;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+      color: #0b0b0b;
+      font-weight: 700;
+      border: none;
+      padding: 11px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .products-container {
+      padding: 4px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .product-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+      position: relative;
+    }
+
+    .card-brand-tag {
+      background: linear-gradient(90deg, #111 0%, #2b2513 50%, #111 100%);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.4);
+      text-align: center;
+      padding: 7px 10px;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      color: var(--gold-light);
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .image-stage {
+      position: relative;
+      width: 100%;
+      height: 290px;
+      background: radial-gradient(circle at center, #26231c 0%, #0c0c0c 85%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .image-stage img {
+      max-height: 84%;
+      max-width: 84%;
+      object-fit: contain;
+      filter: drop-shadow(0 12px 20px rgba(0,0,0,0.7));
+    }
+
+    .bottle-label-overlay {
+      position: absolute;
+      bottom: 22px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(12, 12, 12, 0.92);
+      border: 1px solid var(--gold);
+      padding: 6px 16px;
+      border-radius: 4px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.7);
+      pointer-events: none;
+    }
+
+    .bottle-label-overlay .label-zm {
+      font-size: 1.1rem;
+      letter-spacing: 3px;
+      color: var(--gold-light);
+      font-weight: 900;
+      display: block;
+      line-height: 1.1;
+    }
+
+    .bottle-label-overlay .label-zakir {
+      font-size: 0.62rem;
+      letter-spacing: 1.5px;
+      color: #fff;
+      font-weight: 600;
+      display: block;
+      margin-top: 3px;
+      text-transform: uppercase;
+    }
+
+    .alcohol-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(13, 13, 13, 0.9);
+      border: 1px solid var(--gold);
+      color: var(--gold-light);
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 4px 9px;
+      border-radius: 20px;
+    }
+
+    .product-info {
+      padding: 16px;
+      text-align: center;
+    }
+
+    .product-name {
+      font-size: 1.15rem;
+      color: #fff;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .product-house {
+      font-size: 0.75rem;
+      color: var(--gold);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .product-price-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .price-pkr {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--gold-light);
+    }
+
+    .price-usd {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      background: rgba(255,255,255,0.06);
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+
+    .notes-tagline {
+      font-size: 0.76rem;
+      color: #b0b0b0;
+      margin-bottom: 14px;
+      line-height: 1.45;
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .order-whatsapp-btn {
+      flex: 1;
+      background: var(--whatsapp);
+      color: #0b2f15;
+      font-weight: 800;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 12px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+    }
+
+    .delete-btn {
+      background: #b91c1c;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 0 12px;
+      font-size: 0.75rem;
+      cursor: pointer;
+    }
+
+    .app-footer {
+      text-align: center;
+      padding: 24px 16px;
+      font-size: 0.76rem;
+      color: var(--text-secondary);
+      border-top: 1px solid rgba(212,175,55,0.2);
+      margin-top: 24px;
+    }
+
+    .app-footer span {
+      color: var(--gold-light);
+      font-weight: 600;
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <h1>ZM Perfume & Collection</h1>
-        <h2>پروپرائٹر: ZAKIR Mengal</h2>
-        <p style="color: #cccccc; margin-top: 8px;">خوش آمدید! ہمارے شاہانہ عطر و پرفیومز کا مجموعہ ملاحظہ کریں</p>
-    </header>
-
-    <div class="container">
-        <!-- 1 -->
-        <div class="card">
-            <div class="card-brand-top">ZM Perfume & Collection</div>
-            <img src="audallailcopy.jpg" alt="Aud Allail">
-            <h3>Aud Allail</h3>
-            <div class="card-owner">ZAKIR Mengal</div>
-            <div class="price">Rs. 3,500 | 0% Alcohol</div>
-            <a href="https://wa.me/923357290695?text=السلام علیکم! مجھے یہ پرفیوم خریدنا ہے: Aud Allail" class="whatsapp-btn" target="_blank">واٹس ایپ پر آرڈر کریں</a>
-        </div>
-
-        <!-- 2 -->
-        <div class="card">
-            <div class="card-brand-top">ZM Perfume & Collection</div>
-            <img src="baccarast-12.png" alt="Baccarat Special">
-            <h3>Baccarat Rouge Edition</h3>
-            <div class="card-owner">ZAKIR Mengal</div>
-            <div class="price">Rs. 4,800 | 0% Alcohol</div>
-            <a href="https://wa.me/923357290695?text=السلام علیکم! مجھے یہ پرفیوم خریدنا ہے: Baccarat Rouge Edition" class="whatsapp-btn" target="_blank">واٹس ایپ پر آرڈر کریں</a>
-        </div>
-
-        <!-- 3 -->
-        <div class="card">
-            <div class="card-brand-top">ZM Perfume & Collection</div>
-            <img src="file_0000000057fc820b8ca3d9f038662f1f.png" alt="Perfume Item">
-            <h3>ZM Signature Fragrance 1</h3>
-            <div class="card-owner">ZAKIR Mengal</div>
-            <div class="price">Rs. 3,000 | 0% Alcohol</div>
-            <a href="https://wa.me/923357290695?text=السلام علیکم! مجھے یہ پرفیوم خریدنا ہے: ZM Signature Fragrance 1" class="whatsapp-btn" target="_blank">واٹس ایپ پر آرڈر کریں</a>
-        </div>
-
-        <!-- 4 -->
-        <div class="card">
-            <div class="card-brand-top">ZM Perfume & Collection</div>
-            <img src="file_0000000099c481fabb3f0999075999b8.png" alt="Perfume Item">
-            <h3>ZM Signature Fragrance 2</h3>
-            <div class="card-owner">ZAKIR Mengal</div>
-            <div class="price">Rs. 3,200 | 0% Alcohol</div>
-            <a href="https://wa.me/923357290695?text=السلام علیکم! مجھے یہ پرفیوم خریدنا ہے: ZM Signature Fragrance 2" class="whatsapp-btn" target="_blank">واٹس ایپ پر آرڈر کریں</a>
-        </div>
-
-        <!-- 5 -->
-        <div class="card">
-            <div class="card-brand-top">ZM Perfume & Collection</div>
-            <img src="how_to_make_attar_last_longer_d0ad3120-b900-4...jpg" alt="Attar Guide">
-            <h3>Long Lasting Attar</h3>
-            <div class="card-owner">ZAKIR Mengal</div>
-            <div class="price">Rs. 2,000 | 0% Alcohol</div>
-            <a href="https://wa.me/923357290695?text=السلام علیکم! مجھے یہ پرفیوم خریدنا ہے: Long Lasting Attar" class="whatsapp-btn" target="_blank">واٹس ایپ پر آرڈر کریں</a>
-        </div>
-
-        <!-- 6 -->
-        <div class="card">
-            <div class="card-brand-top">ZM Perfume & Collection</div>
-            <img src="image_b59d00b3.png" alt="Perfume Item">
-            <h3>ZM Special Edition</h3>
-            <div class="card-owner">ZAKIR Mengal</div>
-            <div class="price">Rs. 3,800 | 0% Alcohol</div>
-            <a href="https://wa.me/923357290695?text=السلام علیکم! مجھے یہ پرفیوم خریدنا ہے: ZM Special Edition" class="whatsapp-btn" target="_blank">واٹس ایپ پر آرڈر کریں</a>
-        </div>
-
-        <!-- 7 -->
-        <div class="card">
-            <div class="card-brand-top">ZM Perfume & Collection</div>
-            <img src="janan_30ml.webp" alt="Janan 30ml">
-            <h3>Janan 30ml</h3>
-            <div class="card-owner">ZAKIR Mengal</div>
-            <div class="price">Rs. 2,500 | 0% Alcohol</div>
-            <a href="https://wa.me/923357290695?text=السلام علیکم! مجھے یہ پرفیوم خریدنا ہے: Janan 30ml" class="whatsapp-btn" target="_blank">واٹس ایپ پر آرڈر کریں</a>
-        </div>
-
-        <!-- 8 -->
-        <div class="card">
-            <div class="card-brand-top">ZM Perfume & Collection</div>
-            <img src="lattafa_khamrah_edp_100ml_1_1080x.jpg" alt="Lattafa Khamrah EDP">
-            <h3>Lattafa Khamrah EDP 100ml</h3>
-            <div class="card-owner">ZAKIR Mengal</div>
-            <div class="price">Rs. 4,500 | 0% Alcohol</div>
-            <a href="https://wa.me/923357290695?text=السلام علیکم! مجھے یہ پرفیوم خریدنا ہے: Lattafa Khamrah EDP 100ml" class="whatsapp-btn" target="_blank">واٹس ایپ پر آرڈر کریں</a>
-        </div>
-
-        <!-- 9 -->
-        <div class="card">
-            <div class="card-brand-top">ZM Perfume & Collection</div>
-            <img src="whiteoud-03.jpg" alt="White Oud">
-            <h3>White Oud</h3>
-            <div class="card-owner">ZAKIR Mengal</div>
-            <div class="price">Rs. 1,800 | 0% Alcohol</div>
-            <a href="https://wa.me/923357290695?text=السلام علیکم! مجھے یہ پرفیوم خریدنا ہے: White Oud" class="whatsapp-btn" target="_blank">واٹس ایپ پر آرڈر کریں</a>
-        </div>
-
-        <!-- 10 -->
-        <div class="card">
-            <div class="card-brand-top">ZM Perfume & Collection</div>
-            <img src="1_52292a84-582d-45ea-aa9b-560f62aaa8f1.jpg" alt="Lattafa Collection">
-            <h3>Lattafa Collection</h3>
-            <div class="card-owner">ZAKIR Mengal</div>
-            <div class="price">Rs. 4,200 | 0% Alcohol</div>
-            <a href="https://wa.me/923357290695?text=السلام علیکم! مجھے یہ پرفیوم خریدنا ہے: Lattafa Collection" class="whatsapp-btn" target="_blank">واٹس ایپ پر آرڈر کریں</a>
-        </div>
-
-        <!-- 11 -->
-        <div class="card">
-            <div class="card-brand-top">ZM Perfume & Collection</div>
-            <img src="71N7ul-V9lL.jpg" alt="Lattafa Khamrah">
-            <h3>Lattafa Khamrah</h3>
-            <div class="card-owner">ZAKIR Mengal</div>
-            <div class="price">Rs. 4,000 | 0% Alcohol</div>
-            <a href="https://wa.me/923357290695?text=السلام علیکم! مجھے یہ پرفیوم خریدنا ہے: Lattafa Khamrah" class="whatsapp-btn" target="_blank">واٹس ایپ پر آرڈر کریں</a>
-        </div>
-
-        <!-- 12 -->
-        <div class="card">
-            <div class="card-brand-top">ZM Perfume & Collection</div>
-            <img src="Attar-7-to-12-06.jpg" alt="Attar 7 to 12">
-            <h3>Attar 7 to 12</h3>
-            <div class="card-owner">ZAKIR Mengal</div>
-            <div class="price">Rs. 1,500 | 0% Alcohol</div>
-            <a href="https://wa.me/923357290695?text=السلام علیکم! مجھے یہ پرفیوم خریدنا ہے: Attar 7 to 12" class="whatsapp-btn" target="_blank">واٹس ایپ پر آرڈر کریں</a>
-        </div>
-
-        <!-- 13 -->
-        <div class="card">
-            <div class="card-brand-top">ZM Perfume & Collection</div>
-            <img src="Attar_Full_Attar_Attar_Full_Attar.jpg" alt="Attar Full">
-            <h3>Attar Full Collection</h3>
-            <div class="card-owner">ZAKIR Mengal</div>
-            <div class="price">Rs. 2,200 | 0% Alcohol</div>
-            <a href="https://wa.me/923357290695?text=السلام علیکم! مجھے یہ پرفیوم خریدنا ہے: Attar Full Collection" class="whatsapp-btn" target="_blank">واٹس ایپ پر آرڈر کریں</a>
-        </div>
-
-        <!-- 14 -->
-        <div class="card">
-            <div class="card-brand-top">ZM Perfume & Collection</div>
-            <img src="Diwali-Puja-Gift-Set-by-Kannauj-attar-e17710679...jpg" alt="Gift Set">
-            <h3>Special Gift Set Attar</h3>
-            <div class="card-owner">ZAKIR Mengal</div>
-            <div class="price">Rs. 3,500 | 0% Alcohol</div>
-            <a href="https://wa.me/923357290695?text=السلام علیکم! مجھے یہ پرفیوم خریدنا ہے: Special Gift Set Attar" class="whatsapp-btn" target="_blank">واٹس ایپ پر آرڈر کریں</a>
-        </div>
-
-        <!-- 15 -->
-        <div class="card">
-            <div class="card-brand-top">ZM Perfume & Collection</div>
-            <img src="EVERYONE_5.png" alt="Everyone Perfume">
-            <h3>Everyone Fragrance</h3>
-            <div class="card-owner">ZAKIR Mengal</div>
-            <div class="price">Rs. 2,800 | 0% Alcohol</div>
-            <a href="https://wa.me/923357290695?text=السلام علیکم! مجھے یہ پرفیوم خریدنا ہے: Everyone Fragrance" class="whatsapp-btn" target="_blank">واٹس ایپ پر آرڈر کریں</a>
-        </div>
-
-        <!-- 16 -->
-        <div class="card">
-            <div class="card-brand-top">ZM Perfume & Collection</div>
-            <img src="JANANGOLD100ml_2.jpg" alt="Janan Gold">
-            <h3>Janan Gold 100ml</h3>
-            <div class="card-owner">ZAKIR Mengal</div>
-            <div class="price">Rs. 3,500 | 0% Alcohol</div>
-            <a href="https://wa.me/923357290695?text=السلام علیکم! مجھے یہ پرفیوم خریدنا ہے: Janan Gold 100ml" class="whatsapp-btn" target="_blank">واٹس ایپ پر آرڈر کریں</a>
-        </div>
-
-        <!-- 17 -->
-        <div class="card">
-            <div class="card-brand-top">ZM Perfume & Collection</div>
-            <img src="Mens_3fb70373-97d6-4a91-94c6-bbbbe55b8c56...jpg" alt="Mens Collection">
-            <h3>Mens Special Fragrance</h3>
-            <div class="card-owner">ZAKIR Mengal</div>
-            <div class="price">Rs. 3,900 | 0% Alcohol</div>
-            <a href="https://wa.me/923357290695?text=السلام علیکم! مجھے یہ پرفیوم خریدنا ہے: Mens Special Fragrance" class="whatsapp-btn" target="_blank">واٹس ایپ پر آرڈر کریں</a>
-        </div>
-
-        <!-- 18 -->
-        <div class="card">
-            <div class="card-brand-top">ZM Perfume & Collection</div>
-            <img src="Render_0026_blu-man.jpg" alt="Blu Man">
-            <h3>Blu Man Fragrance</h3>
-            <div class="card-owner">ZAKIR Mengal</div>
-            <div class="price">Rs. 3,400 | 0% Alcohol</div>
-            <a href="https://wa.me/923357290695?text=السلام علیکم! مجھے یہ پرفیوم خریدنا ہے: Blu Man Fragrance" class="whatsapp-btn" target="_blank">واٹس ایپ پر آرڈر کریں</a>
-        </div>
-
-        <!-- 19 -->
-        <div class="card">
-            <div class="card-brand-top">ZM Perfume & Collection</div>
-            <img src="Sb778c5f3841d4d8ea2f7268a4ec7e0caD.jpg" alt="Asad & Khamrah Special">
-            <h3>Asad & Khamrah Special</h3>
-            <div class="card-owner">ZAKIR Mengal</div>
-            <div class="price">Rs. 4,500 | 0% Alcohol</div>
-            <a href="https://wa.me/923357290695?text=السلام علیکم! مجھے یہ پرفیوم خریدنا ہے: Asad & Khamrah Special" class="whatsapp-btn" target="_blank">واٹس ایپ پر آرڈر کریں</a>
-        </div>
-
-        <!-- 20 -->
-        <div class="card">
-            <div class="card-brand-top">ZM Perfume & Collection</div>
-            <img src="addon_1ba4de31-6fa2-4c1c-a121-b670fd48ecc6_1...jpg" alt="Addon Perfume">
-            <h3>ZM Luxury Collection</h3>
-            <div class="card-owner">ZAKIR Mengal</div>
-            <div class="price">Rs. 4,100 | 0% Alcohol</div>
-            <a href="https://wa.me/923357290695?text=السلام علیکم! مجھے یہ پرفیوم خریدنا ہے: ZM Luxury Collection" class="whatsapp-btn" target="_blank">واٹس ایپ پر آرڈر کریں</a>
-        </div>
+  <header class="brand-header">
+    <div class="brand-logo-area">
+      <div class="brand-crest" id="headerCrest">ZM</div>
+      <div class="brand-title-wrap">
+        <h1 id="headerBrandTitle">ZM Fragrances</h1>
+        <p id="headerBrandSub">ZAKIR & Mengal • Luxury Line</p>
+      </div>
     </div>
+    <button class="admin-toggle-btn" onclick="toggleAdminPanel()">
+      ⚙️ Admin Panel
+    </button>
+  </header>
 
-    <footer>
-        <p>&copy; 2026 ZM Perfume & Collection | تمام حقوق محفوظ ہیں</p>
-    </footer>
+  <div class="hero-banner">
+    <h2 id="bannerTitle">ZM FRAGRANCES — EXCLUSIVE PRINTED COLLECTION</h2>
+    <p>100% Original Impression • 0% Alcohol • Direct WhatsApp Order System</p>
+  </div>
 
+  <div class="admin-panel" id="adminPanel">
+    <h3>Brand Settings (نام تبدیل کریں)</h3>
+    <div class="form-group">
+      <label>Main Brand Name (e.g. ZM Fragrances)</label>
+      <input type="text" id="settingBrandName" value="ZM Fragrances">
+    </div>
+    <div class="form-group">
+      <label>Bottle Sub-Label Name (e.g. Zakir & Mengal)</label>
+      <input type="text" id="settingBottleSub" value="Zakir & Mengal">
+    </div>
+    <button class="btn-gold" style="margin-bottom: 16px;" onclick="saveBrandSettings()">Update Brand Name</button>
+
+    <h3 style="border-top: 1px solid #333; padding-top: 14px;">Add New Perfume & Upload Photo</h3>
+    <div class="form-group">
+      <label>Perfume Name (پرفیوم کا نام)</label>
+      <input type="text" id="newPerfumeName" placeholder="Enter Perfume Name">
+    </div>
+    <div class="form-group">
+      <label>Price in PKR (مثلاً 3500)</label>
+      <input type="number" id="newPerfumePricePKR" placeholder="3500">
+    </div>
+    <div class="form-group">
+      <label>Price in USD ($)</label>
+      <input type="text" id="newPerfumePriceUSD" placeholder="$12.50">
+    </div>
+    <div class="form-group">
+      <label>Upload Bottle Image (گیلری سے تصویر چنیں)</label>
+      <input type="file" id="newPerfumeImageInput" accept="image/*">
+    </div>
+    <div class="form-group">
+      <label>Scent / Notes Description</label>
+      <input type="text" id="newPerfumeNotes" placeholder="Long Lasting • Rose, Saffron & Oud">
+    </div>
+    <button class="btn-gold" onclick="addNewPerfumeCard()">Save & Display Perfume</button>
+  </div>
+
+  <main class="products-container" id="productsGrid">
+    <!-- Products will load here dynamically -->
+  </main>
+
+  <footer class="app-footer">
+    © 2026 <span id="footerBrandName">ZM Fragrances</span> by <span id="footerSubName">ZAKIR & Mengal</span> • WhatsApp: +92 335 7290695
+  </footer>
+
+  <script>
+    let brandConfig = JSON.parse(localStorage.getItem('zm_brand_config')) || {
+      mainName: 'ZM Fragrances',
+      subName: 'Zakir & Mengal'
+    };
+
+    let productsList = JSON.parse(localStorage.getItem('zm_products_list')) || [
+      {
+        id: 1,
+        name: 'Aud Allail',
+        pricePKR: '3,500',
+        priceUSD: '$12.50 USD',
+        notes: 'Long Lasting • Premium Quality • Rich & Intense<br>Rose, Saffron, Warm Amber & Deep Agarwood',
+        img: 'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=700&q=80'
+      },
+      {
+        id: 2,
+        name: 'Baccarat Rouge Edition',
+        pricePKR: '4,800',
+        priceUSD: '$17.00 USD',
+        notes: 'Long Lasting • Amber Floral Signature<br>Jasmine, Saffron, Cedarwood & Ambergris',
+        img: 'https://images.unsplash.com/photo-1547887537-6158d64c35b3?auto=format&fit=crop&w=700&q=80'
+      },
+      {
+        id: 3,
+        name: 'Khamra Luxe',
+        pricePKR: '3,900',
+        priceUSD: '$14.00 USD',
+        notes: 'Long Lasting • Gourmand & Spicy Warmth<br>Cinnamon, Praline, Vanilla & Tonka Bean',
+        img: 'https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=700&q=80'
+      }
+    ];
+
+    function applyBrandConfig() {
+      document.getElementById('headerBrandTitle').innerText = brandConfig.mainName;
+      document.getElementById('bannerTitle').innerText = `${brandConfig.mainName.toUpperCase()} — EXCLUSIVE PRINTED COLLECTION`;
+      document.getElementById('footerBrandName').innerText = brandConfig.mainName;
+      document.getElementById('footerSubName').innerText = brandConfig.subName;
+      document.getElementById('settingBrandName').value = brandConfig.mainName;
+      document.getElementById('settingBottleSub').value = brandConfig.subName;
+      renderProducts();
+    }
+
+    function saveBrandSettings() {
+      brandConfig.mainName = document.getElementById('settingBrandName').value.trim() || 'ZM Fragrances';
+      brandConfig.subName = document.getElementById('settingBottleSub').value.trim() || 'Zakir & Mengal';
+      localStorage.setItem('zm_brand_config', JSON.stringify(brandConfig));
+      applyBrandConfig();
+      alert('برینڈ کا نام اپڈیٹ ہو گیا!');
+    }
+
+    function toggleAdminPanel() {
+      const panel = document.getElementById('adminPanel');
+      panel.classList.toggle('open');
+    }
+
+    function renderProducts() {
+      const container = document.getElementById('productsGrid');
+      container.innerHTML = '';
+      productsList.forEach((prod) => {
+        const waText = encodeURIComponent(
+          `Assalam-o-Alaikum ${brandConfig.mainName}, I want to order:\n• Perfume: ${prod.name}\n• Brand: ${brandConfig.mainName} (${brandConfig.subName})\n• Price: Rs. ${prod.pricePKR} (0% Alcohol)`
+        );
+
+        const card = document.createElement('article');
+        card.className = 'product-card';
+        card.innerHTML = `
+          <div class="card-brand-tag">${brandConfig.mainName.toUpperCase()} — ${brandConfig.subName.toUpperCase()}</div>
+          <div class="image-stage">
+            <span class="alcohol-badge">0% Alcohol</span>
+            <img src="${prod.img}" alt="${prod.name}">
+            <div class="bottle-label-overlay">
+              <span class="label-zm">ZM</span>
+              <span class="label-zakir">${brandConfig.subName}</span>
+            </div>
+          </div>
+          <div class="product-info">
+            <h2 class="product-name">${prod.name}</h2>
+            <div class="product-house">${brandConfig.subName.toUpperCase()} COLLECTION</div>
+            <div class="product-price-row">
+              <span class="price-pkr">Rs. ${prod.pricePKR}</span>
+              <span class="price-usd">${prod.priceUSD}</span>
+            </div>
+            <p class="notes-tagline">${prod.notes}</p>
+            <div class="card-actions">
+              <a class="order-whatsapp-btn" href="https://wa.me/923357290695?text=${waText}" target="_blank">
+                <span>واتس ایپ پر آرڈر کریں</span>
+              </a>
+              <button class="delete-btn" onclick="deleteProduct(${prod.id})">🗑️ Delete</button>
+            </div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function addNewPerfumeCard() {
+      const name = document.getElementById('newPerfumeName').value.trim();
+      const pricePKR = document.getElementById('newPerfumePricePKR').value.trim();
+      const priceUSD = document.getElementById('newPerfumePriceUSD').value.trim() || '$12.00 USD';
+      const notes = document.getElementById('newPerfumeNotes').value.trim() || 'Long Lasting • 0% Alcohol Luxury Scent';
+      const fileInput = document.getElementById('newPerfumeImageInput');
+
+      if (!name || !pricePKR) {
+        alert('براہ کرم پرفیوم کا نام اور قیمت درج کریں!');
+        return;
+      }
+
+      if (fileInput.files && fileInput.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          pushNewProduct(name, pricePKR, priceUSD, notes, e.target.result);
+          clearForm();
+        };
+        reader.readAsDataURL(fileInput.files[0]);
+      } else {
+        const defaultImg = 'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=700&q=80';
+        pushNewProduct(name, pricePKR, priceUSD, notes, defaultImg);
+        clearForm();
+      }
+    }
+
+    function pushNewProduct(name, pricePKR, priceUSD, notes, img) {
+      const newObj = {
+        id: Date.now(),
+        name,
+        pricePKR,
+        priceUSD,
+        notes,
+        img
+      };
+      productsList.unshift(newObj);
+      localStorage.setItem('zm_products_list', JSON.stringify(productsList));
+      renderProducts();
+    }
+
+    function deleteProduct(id) {
+      if (confirm('کیا آپ واقعی یہ پروڈکٹ ڈیلیٹ کرنا چاہتے ہیں؟')) {
+        productsList = productsList.filter(p => p.id !== id);
+        localStorage.setItem('zm_products_list', JSON.stringify(productsList));
+        renderProducts();
+      }
+    }
+
+    function clearForm() {
+      document.getElementById('newPerfumeName').value = '';
+      document.getElementById('newPerfumePricePKR').value = '';
+      document.getElementById('newPerfumePriceUSD').value = '';
+      document.getElementById('newPerfumeNotes').value = '';
+      document.getElementById('newPerfumeImageInput').value = '';
+      document.getElementById('adminPanel').classList.remove('open');
+    }
+
+    applyBrandConfig();
+  </script>
 </body>
 </html>
