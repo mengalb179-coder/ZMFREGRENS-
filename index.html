@@ -53,8 +53,8 @@
         const JSONBIN_URL = `https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}`;
         const WHATSAPP_NUMBER = '923357290695';
 
-        // یہاں آپ اپنا خفیہ پاسورڈ سیٹ کر سکتے ہیں (مثال کے طور پر: 'ziad786')
-        const DEFAULT_SECRET_PASS = '1234'; 
+        // یہاں نیا پاسورڈ سیٹ کر دیا گیا ہے
+        const DEFAULT_SECRET_PASS = '∆∆∆∆∆¢|₹√45'; 
 
         let isAdminLoggedIn = false;
 
@@ -64,7 +64,7 @@
                     headers: { 'X-Master-Key': JSONBIN_API_KEY }
                 });
                 const data = await res.json();
-                const perfumes = data.record.perfumes || [];
+                const perfumes = (data.record && data.record.perfumes) ? data.record.perfumes : [];
                 renderProducts(perfumes);
             } catch (error) {
                 console.error('Error loading products:', error);
@@ -102,9 +102,7 @@
                     headers: { 'X-Master-Key': JSONBIN_API_KEY }
                 });
                 const data = await res.json();
-                // چیک کرے گا کہ ڈیٹا بیس میں پاسورڈ کیا سیٹ ہے، اگر نہیں تو const DEFAULT_SECRET_PASS = 'ziad_zakir_786'; 
-استعمال کرے گا
-                const savedPass = data.record.adminPass || DEFAULT_SECRET_PASS;
+                const savedPass = (data.record && data.record.adminPass) ? data.record.adminPass : DEFAULT_SECRET_PASS;
 
                 if (pass === savedPass) {
                     isAdminLoggedIn = true;
@@ -146,8 +144,8 @@
                     headers: { 'X-Master-Key': JSONBIN_API_KEY }
                 });
                 const currentData = await res.json();
-                let perfumes = currentData.record.perfumes || [];
-                let adminPass = currentData.record.adminPass || DEFAULT_SECRET_PASS;
+                let perfumes = (currentData.record && currentData.record.perfumes) ? currentData.record.perfumes : [];
+                let adminPass = (currentData.record && currentData.record.adminPass) ? currentData.record.adminPass : DEFAULT_SECRET_PASS;
 
                 perfumes.push({
                     name: name,
@@ -183,8 +181,8 @@
                 headers: { 'X-Master-Key': JSONBIN_API_KEY }
             });
             const currentData = await res.json();
-            let perfumes = currentData.record.perfumes || [];
-            let adminPass = currentData.record.adminPass || DEFAULT_SECRET_PASS;
+            let perfumes = (currentData.record && currentData.record.perfumes) ? currentData.record.perfumes : [];
+            let adminPass = (currentData.record && currentData.record.adminPass) ? currentData.record.adminPass : DEFAULT_SECRET_PASS;
             perfumes.splice(index, 1);
 
             await fetch(JSONBIN_URL, {
