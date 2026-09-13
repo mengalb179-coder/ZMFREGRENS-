@@ -121,6 +121,19 @@
       color: var(--text-secondary);
     }
 
+    .login-box {
+      display: none;
+      margin: 14px;
+      background: var(--bg-secondary);
+      border: 1.5px solid var(--gold);
+      border-radius: 14px;
+      padding: 16px;
+    }
+
+    .login-box.open {
+      display: block;
+    }
+
     .admin-panel {
       display: none;
       margin: 14px;
@@ -176,6 +189,19 @@
       cursor: pointer;
       text-transform: uppercase;
       letter-spacing: 1px;
+    }
+
+    .btn-reset {
+      width: 100%;
+      background: #333;
+      color: var(--gold-light);
+      font-weight: 600;
+      border: 1px solid var(--gold);
+      padding: 8px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      margin-top: 8px;
     }
 
     .products-container {
@@ -380,7 +406,7 @@
         <p id="headerBrandSub">ZAKIR & Mengal • Luxury Line</p>
       </div>
     </div>
-    <button class="admin-toggle-btn" onclick="checkAdminPassword()">
+    <button class="admin-toggle-btn" onclick="toggleAdminBox()">
       🔒 Admin Panel
     </button>
   </header>
@@ -388,6 +414,14 @@
   <div class="hero-banner">
     <h2 id="bannerTitle">ZM FRAGRANCES — EXCLUSIVE PRINTED COLLECTION</h2>
     <p>100% Original Impression • 0% Alcohol • Direct WhatsApp Order System</p>
+  </div>
+
+  <div class="login-box" id="loginBox">
+    <h3 style="color: var(--gold); font-size: 0.9rem; margin-bottom: 8px;">ایڈمن پاسورڈ درج کریں</h3>
+    <div class="form-group">
+      <input type="password" id="adminPassInput" placeholder="Password لکھیں (جیسے 1234)">
+    </div>
+    <button class="btn-gold" onclick="verifyAdminPassword()">لاگ ان کریں</button>
   </div>
 
   <div class="admin-panel" id="adminPanel">
@@ -424,6 +458,7 @@
       <input type="text" id="newPerfumeNotes" placeholder="Long Lasting • Rose, Saffron & Oud">
     </div>
     <button class="btn-gold" onclick="addNewPerfumeCard()">Save & Display Perfume</button>
+    <button class="btn-reset" onclick="resetDefaultProducts()">Reset Default Products (ڈیفالٹ پرفیوم واپس لائیں)</button>
   </div>
 
   <main class="products-container" id="productsGrid">
@@ -435,15 +470,10 @@
   </footer>
 
   <script>
-    const ADMIN_PASSWORD '٫78600؛ // آپ یہاں پاسورڈ بدل سکتے ہیں
+    const ADMIN_PASSWORD = '1234'; // آپ یہاں پاسورڈ بدل سکتے ہیں
     let isAdminLoggedIn = false;
 
-    let brandConfig = JSON.parse(localStorage.getItem('zm_brand_config')) || {
-      mainName: 'ZM Fragrances',
-      subName: 'Zakir & Mengal'
-    };
-
-    let productsList = JSON.parse(localStorage.getItem('zm_products_list')) || [
+    const defaultProducts = [
       {
         id: 1,
         name: 'Aud Allail',
@@ -470,6 +500,14 @@
       }
     ];
 
+    let brandConfig = JSON.parse(localStorage.getItem('zm_brand_config')) || {
+      mainName: 'ZM Fragrances',
+      subName: 'Zakir & Mengal'
+    };
+
+    let savedProducts = JSON.parse(localStorage.getItem('zm_products_list'));
+    let productsList = (savedProducts && savedProducts.length > 0) ? savedProducts : defaultProducts;
+
     function applyBrandConfig() {
       document.getElementById('headerBrandTitle').innerText = brandConfig.mainName;
       document.getElementById('bannerTitle').innerText = `${brandConfig.mainName.toUpperCase()} — EXCLUSIVE PRINTED COLLECTION`;
@@ -480,20 +518,24 @@
       renderProducts();
     }
 
-    function checkAdminPassword() {
+    function toggleAdminBox() {
       if (!isAdminLoggedIn) {
-        const inputPass = prompt('براہ کرم ایڈমিন پاسورڈ درج کریں:');
-        if (inputPass === ADMIN_PASSWORD) {
-          isAdminLoggedIn = true;
-          alert('خوش آمدید! ایڈমিন پینل انلاک ہو گیا ہے۔');
-          document.getElementById('adminPanel').classList.add('open');
-          renderProducts();
-        } else if (inputPass !== null) {
-          alert('غلط پاسورڈ! آپ کو رسائی نہیں ہے۔');
-        }
+        document.getElementById('loginBox').classList.toggle('open');
       } else {
-        const panel = document.getElementById('adminPanel');
-        panel.classList.toggle('open');
+        document.getElementById('adminPanel').classList.toggle('open');
+      }
+    }
+
+    function verifyAdminPassword() {
+      const inputPass = document.getElementById('adminPassInput').value;
+      if (inputPass === ADMIN_PASSWORD) {
+        isAdminLoggedIn = true;
+        alert('خوش آمدید! ایڈমিন پینل انلاک ہو گیا ہے۔');
+        document.getElementById('loginBox').classList.remove('open');
+        document.getElementById('adminPanel').classList.add('open');
+        renderProducts();
+      } else {
+        alert('غلط پاسورڈ! درست پاسورڈ درج کریں (ڈیفالٹ: 1234)');
       }
     }
 
@@ -513,7 +555,7 @@
           `Assalam-o-Alaikum ${brandConfig.mainName}, I want to order:\n• Perfume: ${prod.name}\n• Brand: ${brandConfig.mainName} (${brandConfig.subName})\n• Price: Rs. ${prod.pricePKR} (0% Alcohol)`
         );
 
-        const card = document.article ? document.createElement('article') : document.createElement('article');
+        const card = document.createElement('article');
         card.className = 'product-card';
         card.innerHTML = `
           <div class="card-brand-tag">${brandConfig.mainName.toUpperCase()} — ${brandConfig.subName.toUpperCase()}</div>
@@ -597,13 +639,20 @@
       }
     }
 
+    function resetDefaultProducts() {
+      if (confirm('کیا آپ پرانے ڈیفالٹ پرفیوم واپس لانا چاہتے ہیں؟')) {
+        productsList = defaultProducts;
+        localStorage.setItem('zm_products_list', JSON.stringify(productsList));
+        renderProducts();
+      }
+    }
+
     function clearForm() {
       document.getElementById('newPerfumeName').value = '';
       document.getElementById('newPerfumePricePKR').value = '';
       document.getElementById('newPerfumePriceUSD').value = '';
       document.getElementById('newPerfumeNotes').value = '';
       document.getElementById('newPerfumeImageInput').value = '';
-      document.getElementById('adminPanel').classList.remove('open');
     }
 
     applyBrandConfig();
