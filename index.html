@@ -341,6 +341,7 @@
     }
 
     .delete-btn {
+      display: none;
       background: #b91c1c;
       color: #fff;
       border: none;
@@ -348,6 +349,10 @@
       padding: 0 12px;
       font-size: 0.75rem;
       cursor: pointer;
+    }
+
+    .delete-btn.show-admin {
+      display: block;
     }
 
     .app-footer {
@@ -375,8 +380,8 @@
         <p id="headerBrandSub">ZAKIR & Mengal • Luxury Line</p>
       </div>
     </div>
-    <button class="admin-toggle-btn" onclick="toggleAdminPanel()">
-      ⚙️ Admin Panel
+    <button class="admin-toggle-btn" onclick="checkAdminPassword()">
+      🔒 Admin Panel
     </button>
   </header>
 
@@ -430,6 +435,9 @@
   </footer>
 
   <script>
+    const ADMIN_PASSWORD '٫78600؛ // آپ یہاں پاسورڈ بدل سکتے ہیں
+    let isAdminLoggedIn = false;
+
     let brandConfig = JSON.parse(localStorage.getItem('zm_brand_config')) || {
       mainName: 'ZM Fragrances',
       subName: 'Zakir & Mengal'
@@ -472,17 +480,29 @@
       renderProducts();
     }
 
+    function checkAdminPassword() {
+      if (!isAdminLoggedIn) {
+        const inputPass = prompt('براہ کرم ایڈমিন پاسورڈ درج کریں:');
+        if (inputPass === ADMIN_PASSWORD) {
+          isAdminLoggedIn = true;
+          alert('خوش آمدید! ایڈমিন پینل انلاک ہو گیا ہے۔');
+          document.getElementById('adminPanel').classList.add('open');
+          renderProducts();
+        } else if (inputPass !== null) {
+          alert('غلط پاسورڈ! آپ کو رسائی نہیں ہے۔');
+        }
+      } else {
+        const panel = document.getElementById('adminPanel');
+        panel.classList.toggle('open');
+      }
+    }
+
     function saveBrandSettings() {
       brandConfig.mainName = document.getElementById('settingBrandName').value.trim() || 'ZM Fragrances';
       brandConfig.subName = document.getElementById('settingBottleSub').value.trim() || 'Zakir & Mengal';
       localStorage.setItem('zm_brand_config', JSON.stringify(brandConfig));
       applyBrandConfig();
       alert('برینڈ کا نام اپڈیٹ ہو گیا!');
-    }
-
-    function toggleAdminPanel() {
-      const panel = document.getElementById('adminPanel');
-      panel.classList.toggle('open');
     }
 
     function renderProducts() {
@@ -493,7 +513,7 @@
           `Assalam-o-Alaikum ${brandConfig.mainName}, I want to order:\n• Perfume: ${prod.name}\n• Brand: ${brandConfig.mainName} (${brandConfig.subName})\n• Price: Rs. ${prod.pricePKR} (0% Alcohol)`
         );
 
-        const card = document.createElement('article');
+        const card = document.article ? document.createElement('article') : document.createElement('article');
         card.className = 'product-card';
         card.innerHTML = `
           <div class="card-brand-tag">${brandConfig.mainName.toUpperCase()} — ${brandConfig.subName.toUpperCase()}</div>
@@ -517,7 +537,7 @@
               <a class="order-whatsapp-btn" href="https://wa.me/923357290695?text=${waText}" target="_blank">
                 <span>واتس ایپ پر آرڈر کریں</span>
               </a>
-              <button class="delete-btn" onclick="deleteProduct(${prod.id})">🗑️ Delete</button>
+              <button class="delete-btn ${isAdminLoggedIn ? 'show-admin' : ''}" onclick="deleteProduct(${prod.id})">🗑️ Delete</button>
             </div>
           </div>
         `;
@@ -566,6 +586,10 @@
     }
 
     function deleteProduct(id) {
+      if (!isAdminLoggedIn) {
+        alert('صرف ایڈমিন ہی پروڈکٹ ڈیلیٹ کر سکتا ہے!');
+        return;
+      }
       if (confirm('کیا آپ واقعی یہ پروڈکٹ ڈیلیٹ کرنا چاہتے ہیں؟')) {
         productsList = productsList.filter(p => p.id !== id);
         localStorage.setItem('zm_products_list', JSON.stringify(productsList));
