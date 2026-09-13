@@ -5,28 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZM Fragrances | Zakir & Mengal</title>
     <style>
-        body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 20px; }
+        body { 
+            font-family: Arial, sans-serif; 
+            background: #050b14 url('1000069710.jpg') no-repeat center center fixed; 
+            background-size: cover; 
+            color: #fff;
+            margin: 0; 
+            padding: 20px; 
+        }
         .container { max-width: 1200px; margin: auto; }
-        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; background: #fff; padding: 15px 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .header h1 { margin: 0; font-size: 24px; color: #111; }
-        .admin-toggle-btn { background: #333; color: white; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer; font-size: 14px; }
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; background: rgba(10, 20, 35, 0.85); padding: 15px 20px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,229,255,0.2); border: 1px solid rgba(0,229,255,0.3); }
+        .header h1 { margin: 0; font-size: 24px; color: #00e5ff; text-shadow: 0 0 10px rgba(0,229,255,0.5); }
+        .admin-toggle-btn { background: #00e5ff; color: #050b14; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer; font-size: 14px; font-weight: bold; }
         
         .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .product-card { background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: center; display: flex; flex-direction: column; justify-content: space-between; }
+        .product-card { background: rgba(10, 20, 35, 0.85); padding: 15px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); border: 1px solid rgba(0,229,255,0.3); text-align: center; display: flex; flex-direction: column; justify-content: space-between; }
         .product-card img { max-width: 100%; height: 220px; object-fit: cover; border-radius: 6px; margin-bottom: 10px; }
-        .product-card h3 { margin: 10px 0 2px 0; font-size: 18px; color: #222; }
-        .alcohol-tag { color: #28a745; font-size: 13px; font-weight: bold; margin-bottom: 8px; }
-        .product-card p { margin: 5px 0 15px 0; color: #555; font-weight: bold; }
+        .product-card h3 { margin: 10px 0 2px 0; font-size: 18px; color: #fff; }
+        .alcohol-tag { color: #00ff66; font-size: 13px; font-weight: bold; margin-bottom: 8px; }
+        .product-card p { margin: 5px 0 15px 0; color: #00e5ff; font-weight: bold; }
         
         .order-btn { background: #25D366; color: white; text-decoration: none; padding: 10px; border-radius: 4px; display: block; font-weight: bold; margin-bottom: 5px; }
         .delete-btn { background: #dc3545; color: white; border: none; padding: 8px; border-radius: 4px; cursor: pointer; width: 100%; margin-top: 5px; }
 
-        .admin-panel { background: white; padding: 20px; border-radius: 8px; margin-top: 30px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: none; }
-        .admin-panel h2 { margin-top: 0; font-size: 20px; }
-        input, button.action-btn { padding: 10px; margin: 8px 0; width: 100%; box-sizing: border-box; border-radius: 4px; border: 1px solid #ccc; }
-        button.action-btn { background: #28a745; color: white; border: none; cursor: pointer; font-weight: bold; }
+        .admin-panel { background: rgba(10, 20, 35, 0.95); padding: 20px; border-radius: 8px; margin-top: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.6); border: 1px solid rgba(0,229,255,0.4); display: none; color: #fff; }
+        .admin-panel h2, .admin-panel h3 { color: #00e5ff; }
+        input, button.action-btn { padding: 10px; margin: 8px 0; width: 100%; box-sizing: border-box; border-radius: 4px; border: 1px solid rgba(0,229,255,0.3); background: #0b162c; color: #fff; }
+        button.action-btn { background: #00e5ff; color: #050b14; border: none; cursor: pointer; font-weight: bold; }
         button.logout-btn { background: #6c757d; color: white; border: none; cursor: pointer; }
-        .or-text { text-align: center; font-weight: bold; color: #555; margin: 5px 0; }
+        .or-text { text-align: center; font-weight: bold; color: #00e5ff; margin: 5px 0; }
     </style>
 </head>
 <body>
@@ -55,13 +62,13 @@
                 <input type="number" id="perfumePricePkr" placeholder="Price in PKR (e.g. 8950)">
                 <input type="number" id="perfumePriceUsd" placeholder="Price in USD (e.g. 35)">
                 
-                <label style="font-size: 13px; color: #555; font-weight: bold;">Option 1: Upload Image File (Camera / Gallery)</label>
+                <label style="font-size: 13px; color: #00e5ff; font-weight: bold;">Option 1: Pick Image from Mobile Gallery / Camera</label>
                 <input type="file" id="perfumeImageFile" accept="image/*">
                 
-                <div class="or-text">— OR —</div>
+                <div class="or-text">— OR (یا پھر) —</div>
                 
-                <label style="font-size: 13px; color: #555; font-weight: bold;">Option 2: Or Paste Image URL (from Google / YouTube / Web)</label>
-                <input type="text" id="perfumeImageUrl" placeholder="Paste Image Link / URL here (https://...)">
+                <label style="font-size: 13px; color: #00e5ff; font-weight: bold;">Option 2: Paste Full Web Image Link (https://...)</label>
+                <input type="text" id="perfumeImageUrl" placeholder="Paste full link like https://example.com/perfume.jpg">
 
                 <button class="action-btn" onclick="addPerfume()">Save Product Online</button>
                 <button class="logout-btn" onclick="logoutAdmin()">Logout</button>
@@ -95,7 +102,7 @@
             const grid = document.getElementById('productGrid');
             grid.innerHTML = '';
             if (perfumes.length === 0) {
-                grid.innerHTML = '<p style="text-align: center; color: #777; width: 100%;">کوئی پروڈکٹ موجود نہیں ہے۔</p>';
+                grid.innerHTML = '<p style="text-align: center; color: #00e5ff; width: 100%; font-weight: bold;">کوئی پروڈکٹ موجود نہیں ہے۔</p>';
                 return;
             }
             perfumes.forEach((p, index) => {
@@ -147,7 +154,7 @@
             loadProductsOnline();
         }
 
-        function resizeImage(file, maxWidth, maxHeight, quality) {
+        function compressImageFile(file) {
             return new Promise((resolve) => {
                 const reader = new FileReader();
                 reader.readAsDataURL(file);
@@ -155,27 +162,20 @@
                     const img = new Image();
                     img.src = event.target.result;
                     img.onload = function () {
+                        const canvas = document.createElement('canvas');
+                        const maxSize = 300;
                         let width = img.width;
                         let height = img.height;
-
                         if (width > height) {
-                            if (width > maxWidth) {
-                                height *= maxWidth / width;
-                                width = maxWidth;
-                            }
+                            if (width > maxSize) { height *= maxSize / width; width = maxSize; }
                         } else {
-                            if (height > maxHeight) {
-                                width *= maxHeight / height;
-                                height = maxHeight;
-                            }
+                            if (height > maxSize) { width *= maxSize / height; height = maxSize; }
                         }
-
-                        const canvas = document.createElement('canvas');
                         canvas.width = width;
                         canvas.height = height;
                         const ctx = canvas.getContext('2d');
                         ctx.drawImage(img, 0, 0, width, height);
-                        resolve(canvas.toDataURL('image/jpeg', quality));
+                        resolve(canvas.toDataURL('image/jpeg', 0.6));
                     };
                 };
             });
@@ -189,7 +189,7 @@
             const imageUrlInput = document.getElementById('perfumeImageUrl').value.trim();
 
             if (!name || !pkr || !usd || (!imageFile && !imageUrlInput)) {
-                alert('براہ کرم نام، قیمت اور یا تو تصویر سلیکٹ کریں یا گوگل/ویب سے تصویر کا لنک (URL) ڈالیں!');
+                alert('براہ کرم نام، قیمت اور یا تو گیلری سے تصویر منتخب کریں یا ویب لنک ڈالیں!');
                 return;
             }
 
@@ -197,14 +197,14 @@
                 let finalImageSource = imageUrlInput;
 
                 if (imageFile) {
-                    finalImageSource = await resizeImage(imageFile, 500, 500, 0.7);
+                    finalImageSource = await compressImageFile(imageFile);
                 }
 
                 const res = await fetch(JSONBIN_URL + '/latest', {
                     headers: { 'X-Master-Key': JSONBIN_API_KEY }
                 });
                 const currentData = await res.json();
-                let perfumes = (data.record && data.record.perfumes) ? data.record.perfumes : [];
+                let perfumes = (currentData.record && currentData.record.perfumes) ? currentData.record.perfumes : [];
 
                 perfumes.push({
                     name: name,
@@ -259,7 +259,7 @@
                     body: JSON.stringify({ perfumes: perfumes })
                 });
 
-                alert('پروڈکٹ ڈیلیٹ کر دی گئی ہے!');
+                .alert('پروڈکٹ ڈیلیٹ کر دی گئی ہے!');
                 loadProductsOnline();
             } catch (err) {
                 alert('ڈیلیٹ کرنے میں مسئلہ آیا ہے۔');
